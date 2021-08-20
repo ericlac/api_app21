@@ -1,0 +1,125 @@
+#list_details ion-item.item-block {
+  min-height: 4rem;
+}
+
+#title_details button.prev_link {
+  margin: 16px 15px 10px -5px;
+  width: 56px;
+  height: 56px;
+}
+
+#title_details #edit_seed,
+#title_details #display_seed {
+  margin: 15px 2px 10px 15px;
+}
+
+#title_details button[item-end] ion-icon,
+#title_details button[item-start] ion-icon {
+  font-size: 1.5em;
+}
+
+#title_details .item-inner ion-label {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+#title_details ion-label h2,
+#title_details ion-label p {
+  padding-left: 6px;
+}
+
+#title_details ion-label ion-avatar {
+  min-width: 56px;
+}
+
+ion-list ion-item#title_details ion-icon.item_lock {
+  top: 8px;
+  left: 24px;
+}
+
+ion-list ion-item#title_details > .item-inner {
+  position: relative;
+}
+
+#title_details p:first-child {
+  color: map-get($colors, text_main);
+  font-size: $font-size-base;
+  margin-bottom: 4px;
+}
+
+#title_details p:last-child {
+  color: map-get($colors, text_alt);
+  font-size: 1.1rem;
+  line-height: 1em;
+}
+
+#list_details #title_details .button-inner {
+  justify-content: center;
+}
+
+#list_details .button-inner {
+  text-transform: none;
+  justify-content: flex-start;
+}
+
+#list_details .button-large-md {
+  line-height: 2.8em;
+}
+
+#list_details .label-md,
+#list_details .button_eol {
+  margin: 13px 8px 0 0;
+}
+
+#list_details .details_author .label-md {
+  color: #666;
+  margin: 0;
+}
+
+#list_details .details_author button {
+  padding-right: 0;
+}
+
+#list_details .label_sm {
+  font-size: 1.2rem;
+}
+
+#list_details .datetime-md {
+  padding-bottom: 0;
+  font-size: 1.2rem;
+}
+
+#list_details a[item-left] {
+  margin: 0 1em 0 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  vertical-align: top;
+}
+
+#list_details .button_label {
+  font-weight: normal;
+  text-transform: none;
+  color: map-get($colors, text_alt);
+}
+
+#list_details p.button_label {
+  display: inline-block;
+  white-space: pre-line;
+  max-width: 70%;
+  vertical-align: middle;
+  font-size: 1.2rem;
+}
+
+#list_details ion-item.date_item span {
+  padding: 0 1em;
+}
+
+#list_details button p.label_sm {
+  font-weight: normal;
+  font-size: 1.2rem;
+  color: map-get($colors, lighter);
+  white-space: pre-line;
+  text-align: left;
+  padding-left: 5px;
+}

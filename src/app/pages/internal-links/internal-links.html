@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar color="lighter" hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only color="link" (click)="dismiss()" large>
+        <ion-icon name="hexa-left" color="link"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-toolbar no-border>
+      <div id="search_counter">{{validQuery() ? (searching ? '...'  : resultsIds.length) : explorerService.networkData.count}}</div>
+      <ion-searchbar #search (ionInput)="searchNodes($event)" (ionClear)="clearResults($event)" [(ngModel)]="searchQuery"
+                     placeholder="Rechercher" debounce="800"></ion-searchbar>
+    </ion-toolbar>
+  </ion-navbar>
+  <ion-toolbar *ngIf="validQuery()" id="search_filters" color="action" no-padding no-border>
+    <ion-segment [(ngModel)]="searchScope" (ionChange)="scopeChanged($event)" no-border>
+      <ion-segment-button value="all">
+        <span ion-text [color]="searchScope == 'all' ? 'lighter' : 'link'">Tout</span>
+      </ion-segment-button>
+      <ion-segment-button value="private">
+        <span ion-text [color]="searchScope == 'private' ? 'lighter' : 'link'">Privé</span>
+      </ion-segment-button>
+      <ion-segment-button value="apidae">
+        <span ion-text [color]="searchScope == 'apidae' ? 'lighter' : 'link'">Réseau</span>
+      </ion-segment-button>
+      <ion-segment-button value="public">
+        <span ion-text [color]="searchScope == 'public' ? 'lighter' : 'link'">Public</span>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="internal_links">
+  <div class="loading_spinner" *ngIf="searching" text-center>
+    <ion-spinner name="dots"></ion-spinner>
+    <p ion-text color="light">Recherche en cours</p>
+  </div>
+  <div class="loading_spinner" *ngIf="seedsService.idxBuilding" text-center>
+    <ion-spinner name="dots"></ion-spinner>
+    <p ion-text color="light">Indexation en cours, veuillez patienter quelques instants</p>
+  </div>
+  <ion-list *ngIf="!validQuery()">
+    <ion-list-header icon-left color="action" text-left no-margin class="counter">
+      <h2>Graines liées</h2>
+      <ion-icon color="link" name="custom-graph" item-end><span>{{node.connectedSeeds.length}}</span></ion-icon>
+      <ion-icon color="link" name="custom-list" item-end><span>{{node.includedSeeds.length}}</span></ion-icon>
+    </ion-list-header>
+    <ion-item [@fadeInOut] *ngFor="let seed of node.linkedSeeds()" text-wrap>
+      <ion-icon *ngIf="seed.scope == 'private'" name="lock" class="item_lock"></ion-icon>
+      <ion-avatar item-left class="bg_seed {{seed.category}}">
+        <img *ngIf="seed.picture()" src="{{seed.pictureData()}}"/>
+        <div *ngIf="!seed.picture()" text-center><i class="ion-md-custom-{{seed.category}}"></i></div>
+      </ion-avatar>
+      <h2>{{seed.label}}</h2>
+      <button ion-button item-right large color="link" (click)="toggleConnection(seed)" [clear]="node.connections.indexOf(seed.id) == -1 " icon-only>
+        <ion-icon name="custom-graph"></ion-icon>
+      </button>
+      <button ion-button item-right large color="link" (click)="toggleInclusion(seed)" [clear]="node.inclusions.indexOf(seed.id) == -1 " icon-only>
+        <ion-icon name="custom-list"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="validQuery() && results.length > 0" id="select_results">
+    <ion-item *ngFor="let nd of results" text-wrap>
+      <ion-icon *ngIf="nd.scope == 'private'" name="lock" class="item_lock"></ion-icon>
+      <ion-avatar item-left class="bg_seed {{nd.category}}">
+        <img *ngIf="nd.picture()" src="{{nd.pictureData()}}"/>
+        <div *ngIf="!nd.picture()" text-center><i class="ion-md-custom-{{nd.category}}"></i></div>
+      </ion-avatar>
+      <h2>{{nd.label}}</h2>
+      <p text-nowrap>{{nd.description}}</p>
+      <button ion-button item-right large color="link" (click)="toggleConnection(nd)" [clear]="node.connections.indexOf(nd.id) == -1 " icon-only>
+        <ion-icon name="custom-graph"></ion-icon>
+      </button>
+      <button ion-button item-right large color="link" (click)="toggleInclusion(nd)" [clear]="node.inclusions.indexOf(nd.id) == -1 " icon-only>
+        <ion-icon name="custom-list"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <div class="loading_spinner" *ngIf="!seedsService.idxBuilding && validQuery() && results.length == 0" text-center>
+    <p ion-text color="text_alt">Aucun résultat</p>
+  </div>
+</ion-content>

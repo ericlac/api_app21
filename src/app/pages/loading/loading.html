@@ -1,0 +1,23 @@
+<ion-header></ion-header>
+
+<ion-content id="login">
+  <div id="auth_panel" text-center padding-horizontal>
+    <img src="assets/img/logo-apiapp.svg"/><br/>
+    <div class="loading_spinner" text-center margin-top>
+      <ion-spinner name="dots"></ion-spinner>
+      <p *ngIf="msg" ion-text color="text_alt">{{msg}}</p>
+      <p *ngIf="msg" margin-top>
+        Merci de patienter pendant cette étape d’initialisation avant de consulter,
+        collaborer et partager le “ki-fé-koi” du réseau
+      </p>
+    </div>
+    <button ion-button color="person" (click)="cancel()">Annuler</button><br/>
+  </div>
+  <div id="login_bg">
+    <img src="assets/img/flowers-left.png"/>
+    <img src="assets/img/flowers-right.png"/>
+  </div>
+  <div id="footer" text-center>
+    <img src="assets/img/logo-apidae.svg"/>
+  </div>
+</ion-content>

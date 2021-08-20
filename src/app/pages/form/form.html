@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar color="lighter" hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only color="link" (click)="closeForm()" large>
+        <ion-icon name="hexa-left" color="link"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>{{node.id ? 'Modifier la ' : 'Créer une '}}graine</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only color="link" (click)="submitForm()" large [disabled]="disabled">
+        <ion-icon name="hexa-validate" color="link"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="seed_form">
+  <ion-list>
+    <button ion-item large (click)="seedTypes()" detail-none>
+      <ion-label>Type</ion-label>
+      <h2 item-right text-right>{{node.typeInfo().label}}<br/><span ion-text class="synonyms" color="text_alt">{{node.typeInfo().synonyms.join(', ')}}</span></h2>
+      <ion-avatar item-right class="bg_seed {{node.category}}">
+        <div text-center><i class="ion-md-custom-{{node.category}}"></i></div>
+      </ion-avatar>
+    </button>
+    <label ion-item *ngIf="node.category != 'person'">
+      <ion-label fixed>Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="node.label"></ion-input>
+    </label>
+    <label ion-item *ngIf="node.category == 'person'">
+      <ion-label fixed>Prénom nom</ion-label>
+      <ion-input type="text" [(ngModel)]="node.label"></ion-input>
+    </label>
+    <label ion-item>
+      <ion-label fixed>Description</ion-label>
+      <ion-textarea rows="4" [(ngModel)]="node.description"></ion-textarea>
+    </label>
+    <ion-item>
+      <ion-label fixed>Visuel</ion-label>
+      <ion-avatar item-right class="bg_seed {{node.category}}">
+        <img *ngIf="node.picture()" src="{{node.pictureData()}}"/>
+        <div *ngIf="!node.picture()" text-center><i class="ion-md-custom-{{node.category}}"></i></div>
+      </ion-avatar>
+      <button ion-button item-right large icon-only clear color="link" (click)="editAvatar()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button item-right large icon-only clear color="danger" (click)="clearAvatar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Début</ion-label>
+      <ion-datetime [(ngModel)]="node.startDate" displayFormat="DD/MM/YYYY" disabled="true"></ion-datetime>
+      <ion-datetime #startDate displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" min="2000" max="2020" cancelText="Annuler"
+                    doneText="OK" [(ngModel)]="node.startDate" class="hidden"></ion-datetime>
+      <button ion-button item-right large icon-only clear color="link" (click)="editStartDate()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button item-right large icon-only clear color="danger" (click)="clearStartDate()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fin</ion-label>
+      <ion-datetime [(ngModel)]="node.endDate" displayFormat="DD/MM/YYYY" disabled="true"></ion-datetime>
+      <ion-datetime #endDate displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" min="2000" max="2020" cancelText="Annuler"
+                    doneText="OK" [(ngModel)]="node.endDate" class="hidden"></ion-datetime>
+      <button ion-button item-right large icon-only clear color="link" (click)="editEndDate()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button item-right large icon-only clear color="danger" (click)="clearEndDate()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Adresse</ion-label>
+      <ion-input type="text" [(ngModel)]="node.address"></ion-input>
+    </ion-item>
+    <button ion-item (click)="addUrl()" class="label_only counter" no-lines detail-none text-wrap>
+      <h2>Liens externes</h2>
+      <p>(tél., email, réseaux sociaux, lien web...)</p>
+      <ion-icon color="link" name="ios-link" item-end><span>{{node.urls.length}}</span></ion-icon>
+    </button>
+    <ion-item *ngFor="let url of node.urls; let i = index" no-lines>
+      <ion-input type="text" [(ngModel)]="url.value" placeholder="Tél., email, liens..."></ion-input>
+      <button ion-button item-right large clear icon-only color="danger" (click)="node.urls.splice(i, 1)"><ion-icon name="close"></ion-icon></button>
+    </ion-item>
+    <button ion-item class="label_only counter" border-top (click)="addSeed()" detail-none text-wrap>
+      <h2>Liens entre graines</h2>
+      <ion-icon color="link" name="custom-graph" item-end><span>{{node.connectedSeeds.length}}</span></ion-icon>
+      <ion-icon color="link" name="custom-list" item-end><span>{{node.includedSeeds.length}}</span></ion-icon>
+    </button>
+    <ion-item *ngIf="authService.userEmail == node.author || node.scope == 'public' || node.scope == 'apidae'" border-top text-wrap>
+      <h2>Visibilité</h2>
+      <p>{{scopeLabel()}}</p>
+      <button ion-button item-right large color="link" [clear]="node.scope != 'private'" icon-only (click)="toggleScope('private')">
+        <ion-icon name="lock"></ion-icon>
+      </button>
+      <button ion-button item-right large color="link" [clear]="node.scope != 'apidae'" icon-only (click)="toggleScope('apidae')">
+        <ion-icon name="custom-organization"></ion-icon>
+      </button>
+      <button ion-button item-right large color="link" [clear]="node.scope != 'public' || node.scope" icon-only (click)="toggleScope('public')">
+        <ion-icon name="globe"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item *ngIf="node.id" border-top>
+      <ion-label>{{archiveLabel()}}</ion-label>
+      <button ion-button item-right large clear icon-only [color]="archiveColor()" (click)="toggleArchive()">
+        <ion-icon [name]="archiveIcon()"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

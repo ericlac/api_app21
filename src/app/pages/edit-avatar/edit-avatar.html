@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar color="lighter" hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only color="link" (click)="dismiss()" large>
+        <ion-icon name="arrow-back" large></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Modifier le visuel</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only color="link" (click)="submitFile()" large>
+        <ion-icon name="checkmark-circle-outline" large></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="edit_avatar" padding>
+  <div *ngIf="avatar.src || avatar.data" text-center>
+    <h5>Prévisualisation de l'image :</h5>
+    <div id="preview_wrapper">
+      <img id="avatar_preview" src="{{previewData()}}"/>
+    </div>
+  </div>
+  <p text-center>
+    Sélectionnez une image existante ou prenez une nouvelle photo ci-dessous.
+  </p>
+  <div *ngIf="isWeb" class="item item-block item-md">
+    <input type="file" accept="image/*" (change)="updateSrc($event)">
+  </div>
+  <div *ngIf="!isWeb">
+    <br/>
+    <button ion-button block large icon-left color="link" (click)="selectImage()">
+      <ion-icon name="image"></ion-icon>
+      Choisir une image
+    </button>
+    <button ion-button block large icon-left color="product" (click)="captureImage()" margin-top>
+      <ion-icon name="camera"></ion-icon>
+      Prendre une photo
+    </button>
+  </div>
+  <div style="display: none;">
+    <canvas id="resize_canvas"></canvas>
+  </div>
+</ion-content>

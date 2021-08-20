@@ -1,0 +1,173 @@
+#seed_form ion-list .item.item-block {
+  min-height: 70px;
+}
+
+#seed_form ion-list .item.item-block ion-input input {
+  padding: 10px 0;
+}
+
+#seed_form button.item ion-avatar.bg_seed {
+  padding: 6px;
+  width: 56px;
+  height: 56px;
+}
+
+#seed_form .button-inner,
+#edit_avatar .button-inner {
+  text-transform: none;
+}
+
+#seed_form .button-inner i:before {
+  font-size: 3rem;
+}
+
+#seed_form .item.item-block .item-inner {
+  border-bottom-color: map_get($colors, light);
+  box-shadow: none;
+}
+
+#seed_form .item.item-block.item-input.input-has-focus .item-inner,
+#seed_form .item.item-block.item-input.input-has-focus:last-child {
+  border-bottom-color: map_get($colors, link);
+  box-shadow: none;
+}
+
+#seed_form .input-has-focus .label-md {
+  color: map_get($colors, link);
+}
+
+#seed_form .item.item-block[border-top] {
+  margin-top: 10px;
+}
+
+#seed_form .item.item-block[border-top] .item-inner {
+  border-top: 1px solid map_get($colors, light);
+  border-bottom: none;
+}
+
+#seed_form .item-md ion-avatar {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#seed_form .item ion-label,
+#seed_form .item.label_only ion-label {
+  color: $label-md-text-color;
+}
+
+.counter ion-icon {
+  position: relative;
+  padding-right: 8px;
+  font-size: 3.4rem;
+}
+
+.counter ion-icon > span {
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  padding: 4px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  min-width: 18px;
+  text-align: center;
+  background-color: map_get($colors, primary);
+  color: map_get($colors, lighter);
+  border-radius: 50%;
+}
+
+#seed_types div.bg_seed {
+  min-height: 15vh;
+  padding-top: 12px;
+}
+
+#seed_types div.bg_seed > p {
+  color: #ffffff;
+  font-size: 2vh;
+  margin: 0;
+}
+
+#seed_types div.bg_seed > p.synonyms {
+  font-size: 1.4vh;
+}
+
+#seed_types div.bg_seed > p > i:before {
+  font-size: 3.5vh;
+}
+
+#seed_types div.bg_seed.concept > p:first-child {
+  margin-top: 3vh;
+}
+
+#seed_form span.synonyms {
+  font-size: 1.2rem;
+}
+
+#seed_form .button[icon-only] {
+  max-width: 2.4em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#seed_form .button[icon-only][large],
+#internal_links .button[icon-only][large] {
+  height: 2.4em;
+  width: 2.4em;
+}
+
+#seed_form ion-datetime.hidden {
+  display: none;
+}
+
+#seed_form .datetime-disabled,
+#seed_form .item-datetime-disabled ion-label {
+  opacity: 1;
+}
+
+#seed_form ion-icon.item_lock {
+  position: absolute;
+  left: 39px;
+  top: 0;
+  font-size: 14px;
+}
+
+#seed_form ion-item[no-lines].item-block {
+  min-height: 50px;
+}
+
+#seed_form ion-item[no-lines] ion-input {
+  font-size: 14px;
+}
+
+#seed_form button.bg_concept,
+#seed_form button.bg_competence,
+#seed_form button.bg_action,
+#seed_form button.bg_idea,
+#seed_types div.bg_seed.concept > p,
+#seed_types div.bg_seed.competence > p,
+#seed_types div.bg_seed.action > p,
+#seed_types div.bg_seed.idea > p {
+  color: map_get($colors, text_alt);
+}
+
+input.cordova-camera-select {
+  display: none;
+}
+
+#avatar_preview {
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+}
+
+#preview_wrapper {
+  width: 100px;
+  text-align: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+#form_lists ion-segment-button:last-child {
+  border-color: map_get($colors, bulb);
+  color: map_get($colors, bulb);
+}

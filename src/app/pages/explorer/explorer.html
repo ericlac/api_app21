@@ -1,0 +1,153 @@
+<ion-header id="explorer_header">
+  <ion-navbar color="lighter" hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button (click)="navigateTo(null)">
+        <img id="header_logo" src="assets/img/logo-apiapp-mini.svg"/>
+      </button>
+    </ion-buttons>
+    <ion-toolbar no-border>
+      <div id="total_counter">{{explorerService.networkData ? explorerService.networkData.count : 0}}</div>
+      <button id="top_search" ion-button color="lighter" block icon-left text-left (click)="displaySearch()">
+        <ion-icon name="search" color="link"></ion-icon>Rechercher ou créer
+      </button>
+    </ion-toolbar>
+    <ion-buttons right *ngIf="authService.userSeed">
+      <button ion-button (click)="navigateTo(authService.userSeed.id)">
+        <img id="avatar_logo" *ngIf="authService.userSeed.picture()" src="{{authService.userSeed.pictureData()}}"/>
+        <i id="avatar_icon" *ngIf="!authService.userSeed.picture()" class="ion-md-custom-person"></i>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="explorer">
+  <div id="slides_wrapper">
+    <ion-slides #viewSlides id="view_slides" [initialSlide]="1">
+      <ion-slide>
+        <ion-scroll *ngIf="!loading" scrollY="true">
+          <ion-item-group id="list_details" class="scroll_view {{explorerService.rootNode.category}}" *ngIf="explorerService.rootNode" no-lines>
+            <ion-item-divider color="{{explorerService.rootNode.category}}" text-wrap sticky class="view_header">
+              <button ion-button (click)="editSeed()" icon-only clear large item-end>
+                <ion-icon name="hexa-pen"></ion-icon>
+              </button>
+              <ion-avatar item-start *ngIf="explorerService.rootNode.picture() || explorerService.rootNode.category != 'concept'">
+                <img *ngIf="explorerService.rootNode.picture()" src="{{explorerService.rootNode.pictureData()}}"/>
+                <div *ngIf="!explorerService.rootNode.picture()" text-center>
+                  <i class="ion-md-custom-{{explorerService.rootNode.category}}"></i>
+                </div>
+              </ion-avatar>
+              <h2 text-left>
+                {{explorerService.rootNode.label}}&nbsp;
+                <ion-icon *ngIf="explorerService.rootNode.scope == 'private'" name="lock"></ion-icon>
+              </h2>
+            </ion-item-divider>
+            <ion-item text-wrap>
+              <p class="pre">{{explorerService.rootNode.description}}</p>
+            </ion-item>
+            <ion-item right *ngIf="authService.userSeed && explorerService.rootNode.id == authService.userSeed.id">
+              <button ion-button full large icon-left (click)="logOut()" color="person">
+                <ion-icon name="exit"></ion-icon>
+                <p class="label_sm">Déconnexion</p>
+              </button>
+            </ion-item>
+            <ion-item *ngIf="explorerService.rootNode.address" class="selectable">
+              <button ion-button full large icon-left (click)="openAddress(explorerService.rootNode.address)" color="event">
+                <ion-icon name="ios-pin"></ion-icon>
+                <p class="label_sm">{{explorerService.rootNode.address}}</p>
+              </button>
+            </ion-item>
+            <ion-item *ngFor="let url of explorerService.rootNode.urls" class="selectable" text-wrap>
+              <button ion-button full large icon-left (click)="openUrl(url)" color="product">
+                <ion-icon [name]="linkIcon(url)"></ion-icon>
+                <p class="label_sm">{{linkLabel(url)}}</p>
+              </button>
+            </ion-item>
+            <ion-item *ngIf="explorerService.rootNode.startDate" class="selectable date_item">
+              <div class="button-md button-large-md button-md-lighter selectable" large>
+                <span class="button_label">Début</span>
+              </div>
+              <span item-right class="button-md button-large-md button-md-event selectable button_eol">
+                {{dateFormat(explorerService.rootNode.startDate)}}
+              </span>
+            </ion-item>
+            <ion-item *ngIf="explorerService.rootNode.endDate" class="selectable date_item">
+              <div class="button-md button-large-md button-md-lighter selectable" large>
+                <span class="button_label">Fin</span>
+              </div>
+              <span item-right class="button-md button-large-md button-md-event selectable button_eol">
+                {{dateFormat(explorerService.rootNode.endDate)}}
+              </span>
+            </ion-item>
+            <ion-item *ngIf="explorerService.rootNode.creationDate" class="selectable">
+              <ion-label class="label_sm">Date de création</ion-label>
+              <ion-datetime [(ngModel)]="explorerService.rootNode.creationDate" displayFormat="DD/MM/YYYY" disabled="true"></ion-datetime>
+            </ion-item>
+            <ion-item *ngIf="explorerService.rootNode.updateDate" class="selectable">
+              <ion-label class="label_sm">Dernière mise à jour</ion-label>
+              <ion-datetime [(ngModel)]="explorerService.rootNode.updateDate" displayFormat="DD/MM/YYYY" disabled="true"></ion-datetime>
+            </ion-item>
+            <ion-item *ngIf="authorId" class="selectable item-datetime-disabled details_author">
+              <ion-label no-margin class="label_sm">Par </ion-label>
+              <button ion-button item-right clear color="link" (click)="navigateTo(authorId)">{{authorName}}</button>
+            </ion-item>
+          </ion-item-group>
+        </ion-scroll>
+      </ion-slide>
+      <ion-slide>
+        <div id="graph_links" text-center>
+          <button large ion-button (click)="navigateBackward()" [disabled]="explorerService.isFirstStep()" icon-only clear>
+            <ion-icon name="hexa-left" color="link"></ion-icon>
+          </button>
+          <button large ion-button (click)="navigateForward()" [disabled]="explorerService.isLastStep()" icon-only clear>
+            <ion-icon name="hexa-right" color="link"></ion-icon>
+          </button>
+          <br/>
+          <button large ion-button (click)="displayHistory()" [disabled]="explorerService.isFirstStep()" icon-only clear>
+              <ion-icon name="hexa-history" color="link"></ion-icon>
+          </button>
+        </div>
+        <graph (showDetails)="displayDetails()" (rootChange)="rootNodeChange($event)"></graph>
+      </ion-slide>
+      <ion-slide>
+        <ion-scroll *ngIf="!loading" scrollY="true">
+          <ion-item-group id="inclusions" class="scroll_view {{explorerService.rootNode.category}}" *ngIf="explorerService.rootNode">
+            <ion-item-divider color="{{explorerService.rootNode.category}}" class="view_header" text-wrap sticky>
+              <button ion-button (click)="shareSeed()" icon-only clear large item-end>
+                <ion-icon name="hexa-share"></ion-icon>
+              </button>
+              <ion-avatar item-start *ngIf="explorerService.rootNode.picture() || explorerService.rootNode.category != 'concept'">
+                <img *ngIf="explorerService.rootNode.picture()" src="{{explorerService.rootNode.pictureData()}}"/>
+                <div *ngIf="!explorerService.rootNode.picture()" text-center>
+                  <i class="ion-md-custom-{{explorerService.rootNode.category}}"></i>
+                </div>
+              </ion-avatar>
+              <h2 text-left>
+                {{explorerService.rootNode.label}}&nbsp;
+                <ion-icon *ngIf="explorerService.rootNode.scope == 'private'" name="lock"></ion-icon>
+              </h2>
+            </ion-item-divider>
+            <button ion-item *ngFor="let node of explorerService.rootNode.includedSeeds" (click)="navigateTo(node.id, false, false)" text-wrap>
+              <ion-icon *ngIf="node.scope == 'private'" name="lock" class="item_lock"></ion-icon>
+              <ion-avatar item-left class="bg_seed {{node.category}}">
+                <img *ngIf="node.picture()" src="{{node.pictureData()}}"/>
+                <div *ngIf="!node.picture()" text-center><i class="ion-md-custom-{{node.category}}"></i></div>
+              </ion-avatar>
+              <h2>{{node.label}}</h2>
+              <p text-nowrap>{{node.description}}</p>
+            </button>
+            <ion-item *ngIf="explorerService.rootNode.includedSeeds.length == 0" text-center>
+              <p>Aucune graine incluse.</p>
+            </ion-item>
+          </ion-item-group>
+        </ion-scroll>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div id="wheel_wrapper">
+    <div>
+      <img src="assets/img/flowers-left.png"/>
+      <img src="assets/img/flowers-right.png"/>
+      <apiwheel (viewChange)="updateView($event)" (swipe)="wheelSwipe($event)"></apiwheel>
+    </div>
+  </div>
+</ion-content>

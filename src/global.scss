@@ -24,3 +24,709 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+/* copied from app.css (ionic v3) */
+
+@media (max-width: 360px) {
+    #top_search span.button-inner {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @font-face {
+    font-family: 'apiapp';
+    src:  url('../assets/fonts/apiapp.eot');
+    src:  url('../assets/fonts/apiapp.eot#iefix') format('embedded-opentype'),
+    url('../assets/fonts/apiapp.ttf') format('truetype'),
+    url('../assets/fonts/apiapp.woff') format('woff'),
+    url('../assets/fonts/apiapp.svg#apiapp') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'apiapp-actions';
+    src:  url('../assets/fonts/apiapp-actions.eot');
+    src:  url('../assets/fonts/apiapp-actions.eot#iefix') format('embedded-opentype'),
+    url('../assets/fonts/apiapp-actions.ttf') format('truetype'),
+    url('../assets/fonts/apiapp-actions.woff') format('woff'),
+    url('../assets/fonts/apiapp-actions.svg#apiapp-actions') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  [class^="ion-md-custom-"], [class*=" ion-md-custom-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'apiapp' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .ion-md-custom-concept:before {
+    content: "\00a0";
+    padding: 0 9px;
+  }
+  .ion-md-custom-competence:before {
+    content: "\e90d";
+  }
+  .ion-md-custom-creativeWork:before {
+    content: "\e90e";
+  }
+  .ion-md-custom-event:before {
+    content: "\e90f";
+  }
+  .ion-md-custom-action:before {
+    content: "\e900";
+  }
+  .ion-md-custom-clock:before {
+    content: "\e901";
+  }
+  .ion-md-custom-detail:before {
+    content: "\e902";
+  }
+  .ion-md-custom-graph:before {
+    content: "\e903";
+  }
+  .ion-md-custom-guide:before {
+    content: "\e904";
+  }
+  .ion-md-custom-idea:before {
+    content: "\e905";
+  }
+  .ion-md-custom-list:before {
+    content: "\e906";
+  }
+  .ion-md-custom-map:before {
+    content: "\e907";
+  }
+  .ion-md-custom-news:before {
+    content: "\e908";
+  }
+  .ion-md-custom-organization:before {
+    content: "\e909";
+  }
+  .ion-md-custom-person:before {
+    content: "\e90a";
+  }
+  .ion-md-custom-product:before {
+    content: "\e90b";
+  }
+  .ion-md-custom-project:before {
+    content: "\e90c";
+  }
+  
+  [class^="ion-md-hexa-"], [class*=" ion-md-hexa-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'apiapp-actions' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .ion-md-hexa-inclusions:before {
+    content: "\e900";
+  }
+  .ion-md-hexa-validate:before {
+    content: "\e901";
+  }
+  .ion-md-hexa-add:before {
+    content: "\e902";
+  }
+  .ion-md-hexa-close:before {
+    content: "\e903";
+  }
+  .ion-md-hexa-down:before {
+    content: "\e904";
+  }
+  .ion-md-hexa-right:before {
+    content: "\e905";
+  }
+  .ion-md-hexa-left:before {
+    content: "\e906";
+  }
+  .ion-md-hexa-search:before {
+    content: "\e907";
+  }
+  .ion-md-hexa-up:before {
+    content: "\e908";
+  }
+  .ion-md-hexa-cancel:before {
+    content: "\e909";
+  }
+  .ion-md-hexa-my-seeds:before {
+    content: "\e90a";
+  }
+  .ion-md-hexa-graph:before {
+    content: "\e90b";
+  }
+  .ion-md-hexa-history:before {
+    content: "\e90c";
+  }
+  .ion-md-hexa-link:before {
+     content: "\e90d";
+  }
+  .ion-md-hexa-list:before {
+    content: "\e90e";
+  }
+  .ion-md-hexa-pen:before {
+    content: "\e90f";
+  }
+  .ion-md-hexa-share:before {
+    content: "\e910";
+  }
+  .ion-md-hexa-star:before {
+    content: "\e912";
+  }
+  
+  .bg_seed {
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center center;
+  }
+  
+  .bg_seed.organization {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%239f3f3e'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.person {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23df7b7a'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.competence {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23f1d7d7'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.project {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%2346392c'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.event {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%237e7764'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.action {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23ddd4cb'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.product {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23718c16'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.creativeWork {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23a4bd52'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.idea {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23d9e8a9'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.concept {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23ffffff'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.inclusions {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23F4C32E'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed.connections {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%237e7665'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  ion-title .bg_seed.concept,
+  ion-buttons button.bg_seed.concept {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23ffffff' stroke='%23666666'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .bg_seed i[class^="ion-md-custom-"] {
+    color: white;
+  }
+  
+  .bg_seed.concept i[class^="ion-md-custom-"],
+  .bg_seed.competence i[class^="ion-md-custom-"],
+  .bg_seed.action i[class^="ion-md-custom-"],
+  .bg_seed.idea i[class^="ion-md-custom-"] {
+    color: map_get($colors, text_alt)
+  }
+  
+  .view_header ion-icon[name^="hexa-"],
+  .view_header h2 {
+    color: white;
+  }
+  
+  .view_header ion-icon[name^="hexa-"] {
+    padding: 0.1em;
+    font-size: 2.5em;
+  }
+  
+  ion-item-group.concept ion-icon[name^="hexa-"],
+  ion-item-group.concept h2,
+  ion-item-group.competence ion-icon[name^="hexa-"],
+  ion-item-group.competence h2,
+  ion-item-group.action ion-icon[name^="hexa-"],
+  ion-item-group.action h2,
+  ion-item-group.idea ion-icon[name^="hexa-"],
+  ion-item-group.idea h2 {
+    color: map_get($colors, text_alt)
+  }
+  
+  .pre {
+    white-space: pre-line;
+  }
+  
+  #apiapp img {
+    min-height: inherit;
+  }
+  
+  #header_logo,
+  #widget_header img {
+    width: 54px;
+  }
+  
+  #avatar_logo {
+    height: 48px;
+    max-width: 48px;
+    border-radius: 24px;
+  }
+  
+  #avatar_icon {
+    font-size: 48px;
+    color: map_get($colors, person);
+  }
+  
+  ion-header .bar-buttons-md[left] > button {
+    padding: 0;
+    margin-right: 0;
+  }
+  
+  ion-header .bar-buttons-md > button.bar-button-md {
+    height: auto;
+  }
+  
+  ion-searchbar.searchbar-md .searchbar-input {
+    padding: 6px 45px;
+    font-size: 1.4rem;
+  }
+  
+  ion-searchbar.searchbar-md .searchbar-search-icon,
+  #total_counter {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 67.42 76.07' fill='%23ddd4cb'%3E%3Cg%3E%3Cg%3E%3Cpath d='M67.42,54.11V21.93a5.84,5.84,0,0,0-2.92-5L36.64.79a5.78,5.78,0,0,0-5.83,0L2.92,16.88a5.84,5.84,0,0,0-2.92,5V54.14a5.84,5.84,0,0,0,2.92,5L30.81,75.28a5.78,5.78,0,0,0,5.83,0L64.53,59.19A5.92,5.92,0,0,0,67.42,54.11Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    top: 6px;
+    width: 30px;
+    height: 30px;
+  }
+  
+  ion-searchbar.searchbar-md .searchbar-search-icon {
+    left: 7px;
+  }
+  
+  #search_counter,
+  #total_counter {
+    position: absolute;
+    z-index: 999;
+    top: 22px;
+    font-size: 10px;
+    font-weight: 500;
+    color: map_get($colors, text_alt);
+    width: 30px;
+    text-align: center;
+  }
+  
+  #search_counter {
+    left: 14px;
+  }
+  
+  #total_counter {
+    right: 12px;
+    top: 14px;
+    line-height: 30px;
+  }
+  
+  #top_search {
+    text-transform: none;
+    color: map_get($colors, text_alt);
+    font-weight: normal;
+    height: 4.2rem;
+  }
+  
+  #top_search .button-inner {
+    justify-content: flex-start;
+  }
+  
+  #header_search > span {
+    font-size: 16px;
+    padding-left: 30px;
+  }
+  
+  #search_filters {
+    min-height: 40px;
+  }
+  
+  #search_filters.toolbar .segment-md .segment-button.segment-activated {
+    color: map-get($colors, lighter);
+  }
+  
+  #search_filters span,
+  #search_activity button span {
+    text-transform: initial;
+    font-size: 1.1em;
+  }
+  
+  #search_filters.toolbar .segment-md .segment-button:first-child span {
+    text-transform: uppercase;
+  }
+  
+  #search_activity {
+    margin: 5px 0;
+  }
+  
+  #search_activity ion-icon {
+    vertical-align: middle;
+    font-size: 1.6em;
+    padding-top: 0.3em;
+  }
+  
+  .loading_spinner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  
+  .loading_spinner > img {
+    width: 120px;
+  }
+  
+  .loading_spinner > p {
+    font-size: 14px;
+  }
+  
+  .dowrap {
+    white-space: pre-line;
+  }
+  
+  .inline {
+    display: inline-block;
+  }
+  
+  .selectable {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+  
+  ion-list .item ion-icon.item_lock,
+  ion-item-group .item ion-icon.item_lock {
+    position: absolute;
+    top: 4px;
+    left: 39px;
+    font-size: 14px;
+  }
+  
+  ion-list ion-item.item-block {
+    min-height: 75px;
+  }
+  
+  div.font_avatar {
+    font-family: 'apiapp';
+    font-size: 36px;
+    line-height: 80px;
+  }
+  
+  .concept {
+    color: map-get($colors, concept);
+    stroke: map-get($colors, concept);
+  }
+  
+  .idea {
+    color: map-get($colors, idea);
+    stroke: map-get($colors, idea);
+  }
+  
+  .organization {
+    color: map-get($colors, organization);
+    stroke: map-get($colors, organization);
+  }
+  
+  .action {
+    color: map-get($colors, action);
+    stroke: map-get($colors, action);
+  }
+  
+  .event {
+    color: map-get($colors, event);
+    stroke: map-get($colors, event);
+  }
+  
+  .competence {
+    color: map-get($colors, competence);
+    stroke: map-get($colors, competence);
+  }
+  
+  .project {
+    color: map-get($colors, project);
+    stroke: map-get($colors, project);
+  }
+  
+  .creativeWork {
+    color: map-get($colors, creativeWork);
+    stroke: map-get($colors, creativeWork);
+  }
+  
+  .schema {
+    color: map-get($colors, secondary);
+    stroke: map-get($colors, secondary);
+  }
+  
+  .person {
+    color: map-get($colors, person);
+    stroke: map-get($colors, person);
+  }
+  
+  .product {
+    color: map-get($colors, product);
+    stroke: map-get($colors, product);
+  }
+  
+  .bg_concept {
+    background-color: map-get($colors, concept);
+    fill: map-get($colors, concept);
+  }
+  
+  .bg_idea {
+    background-color: map-get($colors, idea);
+    fill: map-get($colors, idea);
+  }
+  
+  .bg_organization {
+    background-color: map-get($colors, organization);
+    fill: map-get($colors, organization);
+  }
+  
+  .bg_action {
+    background-color: map-get($colors, action);
+    fill: map-get($colors, action);
+  }
+  
+  .bg_event {
+    background-color: map-get($colors, event);
+    fill: map-get($colors, event);
+  }
+  
+  .bg_competence {
+    background-color: map-get($colors, competence);
+    fill: map-get($colors, competence);
+  }
+  
+  .bg_project {
+    background-color: map-get($colors, project);
+    fill: map-get($colors, project);
+  }
+  
+  .bg_creativeWork {
+    background-color: map-get($colors, creativeWork);
+    fill: map-get($colors, creativeWork);
+  }
+  
+  .bg_schema {
+    background-color: map-get($colors, secondary);
+    fill: map-get($colors, secondary);
+  }
+  
+  .bg_person {
+    background-color: map-get($colors, person);
+    fill: map-get($colors, person);
+  }
+  
+  .bg_product {
+    background-color: map-get($colors, product);
+    fill: map-get($colors, product);
+  }
+  
+  ion-header > ion-toolbar {
+    border-top: 1px solid map-get($colors, bg);
+  }
+  
+  ion-header ion-navbar ion-buttons button .button-inner {
+    height: 48px;
+  }
+  
+  button.bar-button-md[icon-only] ion-icon[name^='hexa-'],
+  #seed_form button.button-md[icon-only] ion-icon[name^='hexa-'] {
+    padding: 0;
+    font-size: 40px;
+  }
+  
+  ion-header .toolbar_header .toolbar-title {
+    white-space: inherit;
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  
+  ion-header .toolbar_header .toolbar-title img {
+    min-width: inherit;
+    max-width: 50px;
+    height: 50px;
+    margin: 8px;
+  }
+  
+  ion-header .toolbar_header .close_toolbar.bar-button {
+    height: auto;
+  }
+  
+  ion-header .toolbar_header ion-buttons {
+    width: 40px;
+  }
+  
+  ion-header .toolbar_header .close_toolbar.bg_seed {
+    background-color: map_get($colors, lighter);
+    width: 50px;
+    height: 50px;
+  }
+  
+  ion-header .toolbar_header .close_toolbar .button-inner {
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  
+  ion-header .toolbar_header .close_toolbar .button-inner .prev_label {
+    white-space: normal;
+    font-size: 8px;
+    margin-top: 10px;
+  }
+  
+  ion-header .toolbar_header .close_toolbar .button-inner ion-icon {
+    margin-bottom: 5px;
+    font-size: 1.6rem;
+  }
+  
+  ion-header .toolbar_header .close_toolbar .button-inner > * {
+    color: #ffffff;
+  }
+  
+  ion-header .toolbar_header .close_toolbar.concept .button-inner > *,
+  ion-header .toolbar_header .close_toolbar.competence .button-inner > *,
+  ion-header .toolbar_header .close_toolbar.action .button-inner > *,
+  ion-header .toolbar_header .close_toolbar.idea .button-inner > * {
+    color: map_get($colors, text_alt);
+  }
+  
+  ion-header .toolbar_header #nodeDetails .button-inner {
+    justify-content: flex-end;
+  }
+  
+  ion-header .toolbar_header .button-inner {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+  }
+  
+  ion-header .toolbar_header .button-inner > ion-icon {
+    font-size: 3.2rem;
+  }
+  
+  ion-header .toolbar_header .button-inner > ion-icon.item_lock {
+    font-size: 16px;
+    position: absolute;
+    color: black;
+    top: -1px;
+    left: 26px;
+  }
+  
+  ion-header .toolbar_header button.close_toolbar .button-inner > ion-icon.item_lock {
+    font-size: 14px;
+    top: -6px;
+    left: 21px;
+  }
+  
+  [icon-only] i {
+    padding: 0 .5em;
+    font-size: 1.8em;
+    line-height: .67;
+    pointer-events: none;
+  }
+  
+  ion-list ion-item ion-avatar,
+  ion-list button[ion-item] ion-avatar,
+  ion-item-group ion-item ion-avatar,
+  ion-item-group button[ion-item] ion-avatar {
+    width: 56px;
+    height: 56px;
+    padding: 6px;
+  }
+  
+  ion-list ion-avatar.bg_seed i[class^="ion-md-custom-"],
+  ion-item-group ion-avatar.bg_seed i[class^="ion-md-custom-"] {
+    line-height: 40px;
+    font-size: 3rem;
+  }
+  
+  ion-toolbar .header_title {
+    min-height: 64px;
+    height: auto;
+    margin: 0;
+    white-space: normal;
+    padding: 0 1.1em;
+  }
+  
+  ion-toolbar .header_title img {
+    border-radius: 25px;
+  }
+  
+  ion-toolbar .header_title p {
+    text-transform: none;
+    margin: 0;
+  }
+  
+  ion-toolbar .header_title ion-avatar {
+    margin: 2px 0;
+  }
+  
+  ion-toolbar .header_title ion-avatar > div {
+    padding: 4px;
+    margin: 8px;
+    font-size: 3.6rem;
+  }
+  
+  ion-toolbar .header_title ion-avatar + div {
+    margin-left: 5px;
+  }
+  
+  ion-toolbar .header_title p:first-child {
+    color: map-get($colors, text_main);
+    font-size: $font-size-base;
+    margin-bottom: 4px;
+  }
+  
+  ion-toolbar .header_title p:last-child {
+    color: map-get($colors, text_alt);
+    font-size: 1.1rem;
+    line-height: 1em;
+  }
+  

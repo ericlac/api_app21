@@ -1,0 +1,50 @@
+.links line, line.previous {
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+
+graph tspan.icon,
+graph text.icon {
+  font-family: 'Ionicons';
+}
+
+graph image.img-node {
+  clip-path: circle(50% at 50% 50%);
+}
+
+graph use.icon,
+graph text.label {
+  stroke: #ffffff;
+  fill: #ffffff;
+  stroke-width: 0.4;
+}
+
+graph use.icon.concept {
+  stroke: map_get($colors, link);
+  fill: map_get($colors, link);
+}
+
+graph text.concept.label,
+graph text.competence.label,
+graph text.action.label,
+graph text.idea.label,
+graph use.icon.competence,
+graph use.icon.action,
+graph use.icon.idea {
+  stroke: map_get($colors, text_alt);
+  fill: map_get($colors, text_alt);
+}
+
+.connection text {
+  stroke: white;
+  fill:white;
+  stroke-width: 0.2;
+}
+
+.connection circle {
+  fill: map_get($colors, dark);
+}
+
+g.node {
+  pointer-events: all;
+}
