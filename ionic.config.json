@@ -1,0 +1,7 @@
+{
+  "name": "API_APP21",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
