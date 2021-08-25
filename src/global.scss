@@ -467,7 +467,7 @@
   
   .organization {
     color:var(--ion-color-organization);
-    stroke: map-get($colors, organization);
+    stroke:var(--ion-color-organization);
   }
   
   .action {
@@ -477,7 +477,7 @@
   
   .event {
     color:var(--ion-color-event);
-    stroke: map-get($colors, event);
+    stroke:var(--ion-color-event);
   }
   
   .competence {
@@ -497,7 +497,7 @@
   
   .schema {
     color:var(--ion-color-secondary);
-    stroke: map-get($colors, secondary);
+    stroke:var(--ion-color-secondary);
   }
   
   .person {
@@ -506,13 +506,13 @@
   }
   
   .product {
-    color: map-get($colors, product);
-    stroke: map-get($colors, product);
+    color:var(--ion-color-product);
+    stroke:var(--ion-color-product);
   }
   
   .bg_concept {
-    background-color: map-get($colors, concept);
-    fill: map-get($colors, concept);
+    background-color:var(--ion-color-concept);
+    fill:var(--ion-color-concept);
   }
   
   .bg_idea {
@@ -531,8 +531,8 @@
   }
   
   .bg_event {
-    background-color: map-get($colors, event);
-    fill: map-get($colors, event);
+    background-color: var(--ion-color-event);
+    fill: var(--ion-color-event);
   }
   
   .bg_competence {
@@ -546,18 +546,18 @@
   }
   
   .bg_creativeWork {
-    background-color: map-get($colors, creativeWork);
-    fill: map-get($colors, creativeWork);
+    background-color:var(--ion-color-creativeWork);
+    fill:var(--ion-color-creativeWork);
   }
   
   .bg_schema {
-    background-color: map-get($colors, secondary);
-    fill: map-get($colors, secondary);
+    background-color: var(--ion-color-secondary);
+    fill: var(--ion-color-secondary);
   }
   
   .bg_person {
-    background-color: map-get($colors, person);
-    fill: map-get($colors, person);
+    background-color:var(--ion-color-person);
+    fill:var(--ion-color-person);
   }
   
   .bg_product {
@@ -566,7 +566,7 @@
   }
   
   ion-header > ion-toolbar {
-    border-top: 1px solid map-get($colors, bg);
+    border-top: 1px solid var(--ion-color-bg);
   }
   
   ion-header ion-navbar ion-buttons button .button-inner {
@@ -605,7 +605,7 @@
   }
   
   ion-header .toolbar_header .close_toolbar.bg_seed {
-    background-color: map_get($colors, lighter);
+    background-color: var(--ion-color-lighter);
     width: 50px;
     height: 50px;
   }
@@ -722,7 +722,8 @@
   
   ion-toolbar .header_title p:first-child {
     color:var(--ion-color-text_main);
-    font-size: $font-size-base;
+ //EL   font-size: $font-size-base;
+    font-size: 1.1rem;
     margin-bottom: 4px;
   }
   
