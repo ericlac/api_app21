@@ -262,7 +262,7 @@
   .bg_seed.action i[class^="ion-md-custom-"],
   .bg_seed.idea i[class^="ion-md-custom-"] {
   //EL  color: map_get($colors, text_alt)
-  color:var(-ion-color-primary)
+  color:var(--ion-color-text_alt);
   }
   
   .view_header ion-icon[name^="hexa-"],
@@ -283,7 +283,7 @@
   ion-item-group.action h2,
   ion-item-group.idea ion-icon[name^="hexa-"],
   ion-item-group.idea h2 {
-    color: map_get($colors, text_alt)
+    color:var(--ion-color-text_alt);
   }
   
   .pre {
@@ -307,7 +307,7 @@
   
   #avatar_icon {
     font-size: 48px;
-    color: map_get($colors, person);
+    color:var(--ion-color-person)
   }
   
   ion-header .bar-buttons-md[left] > button {
@@ -346,7 +346,7 @@
     top: 22px;
     font-size: 10px;
     font-weight: 500;
-    color: map_get($colors, text_alt);
+    color:var(--ion-color-text_alt);
     width: 30px;
     text-align: center;
   }
@@ -363,7 +363,7 @@
   
   #top_search {
     text-transform: none;
-    color: map_get($colors, text_alt);
+    color:var(--ion-color-text_alt);
     font-weight: normal;
     height: 4.2rem;
   }
@@ -382,7 +382,7 @@
   }
   
   #search_filters.toolbar .segment-md .segment-button.segment-activated {
-    color: map-get($colors, lighter);
+    color:var(--ion-color-lighter);
   }
   
   #search_filters span,
@@ -456,53 +456,53 @@
   }
   
   .concept {
-    color: map-get($colors, concept);
-    stroke: map-get($colors, concept);
+    color:var(--ion-color-concept);
+    stroke:var(--ion-color-concept);
   }
   
   .idea {
-    color: map-get($colors, idea);
-    stroke: map-get($colors, idea);
+    color:var(--ion-color-idea);
+    stroke:var(--ion-color-idea);
   }
   
   .organization {
-    color: map-get($colors, organization);
+    color:var(--ion-color-organization);
     stroke: map-get($colors, organization);
   }
   
   .action {
-    color: map-get($colors, action);
-    stroke: map-get($colors, action);
+    color:var(--ion-color-action);
+    stroke:var(--ion-color-action);
   }
   
   .event {
-    color: map-get($colors, event);
+    color:var(--ion-color-event);
     stroke: map-get($colors, event);
   }
   
   .competence {
-    color: map-get($colors, competence);
-    stroke: map-get($colors, competence);
+    color:var(--ion-color-competence);
+    stroke:var(--ion-color-competence);
   }
   
   .project {
-    color: map-get($colors, project);
-    stroke: map-get($colors, project);
+    color:var(--ion-color-project);
+    stroke:var(--ion-color-project);
   }
   
   .creativeWork {
-    color: map-get($colors, creativeWork);
-    stroke: map-get($colors, creativeWork);
+    color:var(--ion-color-creativeWork);
+    stroke:var(--ion-color-creativeWork);
   }
   
   .schema {
-    color: map-get($colors, secondary);
+    color:var(--ion-color-secondary);
     stroke: map-get($colors, secondary);
   }
   
   .person {
-    color: map-get($colors, person);
-    stroke: map-get($colors, person);
+    color:var(--ion-color-person);
+    stroke:var(--ion-color-person);
   }
   
   .product {
@@ -516,18 +516,18 @@
   }
   
   .bg_idea {
-    background-color: map-get($colors, idea);
-    fill: map-get($colors, idea);
+    background-color:var(--ion-color-idea);
+    fill:var(--ion-color-idea);
   }
   
   .bg_organization {
-    background-color: map-get($colors, organization);
-    fill: map-get($colors, organization);
+    background-color:var(--ion-color-organization);
+    fill:var(--ion-color-organization);
   }
   
   .bg_action {
-    background-color: map-get($colors, action);
-    fill: map-get($colors, action);
+    background-color:var(--ion-color-action);
+    fill:var(--ion-color-action);
   }
   
   .bg_event {
@@ -536,13 +536,13 @@
   }
   
   .bg_competence {
-    background-color: map-get($colors, competence);
-    fill: map-get($colors, competence);
+    background-color:var(--ion-color-competence);
+    fill:var(--ion-color-competence);
   }
   
   .bg_project {
-    background-color: map-get($colors, project);
-    fill: map-get($colors, project);
+    background-color:var(--ion-color- project);
+    fill:var(--ion-color-project);
   }
   
   .bg_creativeWork {
@@ -561,8 +561,8 @@
   }
   
   .bg_product {
-    background-color: map-get($colors, product);
-    fill: map-get($colors, product);
+    background-color:var(--ion-color-product);
+    fill:var(--ion-color-product);
   }
   
   ion-header > ion-toolbar {
@@ -636,7 +636,7 @@
   ion-header .toolbar_header .close_toolbar.competence .button-inner > *,
   ion-header .toolbar_header .close_toolbar.action .button-inner > *,
   ion-header .toolbar_header .close_toolbar.idea .button-inner > * {
-    color: map_get($colors, text_alt);
+    color:var(--ion-color-text_alt);
   }
   
   ion-header .toolbar_header #nodeDetails .button-inner {
@@ -721,13 +721,13 @@
   }
   
   ion-toolbar .header_title p:first-child {
-    color: map-get($colors, text_main);
+    color:var(--ion-color-text_main);
     font-size: $font-size-base;
     margin-bottom: 4px;
   }
   
   ion-toolbar .header_title p:last-child {
-    color: map-get($colors, text_alt);
+    color:var(--ion-color-text_alt);
     font-size: 1.1rem;
     line-height: 1em;
   }

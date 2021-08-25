@@ -74,6 +74,34 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+//EL
+   /** seeds **/
+   --ion-color-organization:   #9f3f3e;
+   --ion-color-person:         #df7b7a;
+   --ion-color-competence:     #f1d7d7;
+   --ion-color-project:        #46392c;
+   --ion-color-event:          #7e7764;
+   --ion-color-action:         #ddd4cb;
+   --ion-color-product:        #718c16;
+   --ion-color-creativeWork:   #a4bd52;
+   --ion-color-idea:           #d9e8a9;
+   --ion-color-concept:        #ffffff;
+   //usage ?
+   --ion-color-favorite:   #6eb1c6;
+   --ion-color-bulb:       #F4C32E;
+   --ion-color-lighter:    #ffffff;
+   --ion-color-light_blue: #b9d7e6;
+  // theme
+  --ion-color-bg:         #eceded;
+  --ion-color-text_main:  #282828;
+  --ion-color-text_alt:   #666666;
+  --ion-color-link:       #5db0c7;
+  --ion-color-toolbar:    #ebe2d9;
+
+}
+//EL exemple d'ajout d'une classe 
+.ion-color-person {
+  --ion-color-base: var(--ion-color-person);
 }
 
 @media (prefers-color-scheme: dark) {
