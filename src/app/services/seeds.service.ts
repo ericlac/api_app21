@@ -4,7 +4,7 @@ import {Seed} from "../models/seed.model";
 import PouchDB from 'pouchdb-browser';
 import {Seeds} from "./seeds";
 import {ProgressHttp} from "angular-progress-http";
-import {Events, Platform} from "ionic-angular";
+import {Events, Platform} from "@ionic/angular";
 import {AuthService} from "./auth.service";
 
 // worker-pouch with worker in external file - iOS only

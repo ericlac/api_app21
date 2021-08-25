@@ -1,0 +1,91 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+//EL mise en commentaire de la ligne suivante
+//@import "ionic.globals";
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #86c7e8,
+  secondary:  #bfce81,
+  danger:     #d67c7d,
+  light:      #ccc,
+  dark:       #7e7665,
+  favorite:   #6eb1c6,
+  bulb:       #F4C32E,
+  lighter:    #ffffff,
+  light_blue: #b9d7e6,
+
+  // theme
+  bg:         #eceded,
+  text_main:  #282828,
+  text_alt:   #666666,
+  link:       #5db0c7,
+  toolbar:    #ebe2d9,
+
+  // seeds
+  organization:   #9f3f3e,
+  person:         #df7b7a,
+  competence:     #f1d7d7,
+  project:        #46392c,
+  event:          #7e7764,
+  action:         #ddd4cb,
+  product:        #718c16,
+  creativeWork:   #a4bd52,
+  idea:           #d9e8a9,
+  concept:        #ffffff
+);
+
+$text-color:        map-get($colors, text_main);
+$background-color:  map-get($colors, bg);
+$label-md-text-color: map-get($colors, text_alt);
+
+// Custom tabs
+$tabs-background: map-get($colors, action);
+$tabs-md-tab-text-color: map-get($colors, link);
+$tabs-md-tab-text-color-active: map-get($colors, lighter);
+$tabs-md-tab-icon-color: map-get($colors, link);
+$tabs-md-tab-icon-color-active: map-get($colors, lighter);
+$tabs-md-tab-min-height: 4.6rem;
+$tabs-md-tab-icon-size: 3.2rem;
+$tabs-md-tab-font-size: 1.4rem;
+$tabs-md-tab-font-size-active: 1.6rem;
+$tabs-md-tab-icon-size-active: 3.6rem;
+
+// Custom segment bars
+$segment-button-md-border-bottom-width: 0;
+$segment-button-md-height: 4.6rem;
+$segment-button-md-line-height: 4.6rem;
+$segment-button-md-icon-size: 3.2rem;
+
+// Custom search bar
+$searchbar-md-input-search-icon-color: map-get($colors, link);
+$searchbar-md-input-text-color: map-get($colors, text_alt);
+$searchbar-md-input-clear-icon-color: map-get($colors, text_main);
+
+// Display detail push on md
+$item-md-detail-push-show: true;
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+$ionicons-font-path: "../assets/fonts";
+@import "ionic.ionicons";
