@@ -1,8 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
-import {Content, NavParams, NavController, IonicPage} from 'ionic-angular';
+import {Content, NavParams, NavController, IonicPage} from '@ionic/angular';
 import {Seed} from "../../models/seed.model";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
-import {RemoteDataService} from "../../providers/remote.service";
+import {RemoteDataService} from "../../services/remote.service";
 
 @IonicPage({
   segment: 'graines/:id'

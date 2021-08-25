@@ -1,6 +1,6 @@
 import {Component, ElementRef, EventEmitter, Output} from "@angular/core";
 import {ComponentUtils} from "./component.utils";
-import {TrackingService} from "../providers/tracking.service";
+import {TrackingService} from "../services/tracking.service";
 
 declare var d3: any;
 

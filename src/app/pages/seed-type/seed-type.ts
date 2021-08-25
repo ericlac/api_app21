@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
-import {ViewController, NavParams, IonicPage} from "ionic-angular";
-import {Seeds} from "../../providers/seeds";
+import {ViewController, NavParams, IonicPage} from "@ionic/angular";
+import {Seeds} from "../../services/seeds";
 
 @IonicPage()
 @Component({

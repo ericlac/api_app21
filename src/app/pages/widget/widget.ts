@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, Content, NavParams, IonicPage} from 'ionic-angular';
-import {RemoteDataService} from "../../providers/remote.service";
-import {Seeds} from "../../providers/seeds";
+import {NavController, Content, NavParams, IonicPage} from '@ionic/angular';
+import {RemoteDataService} from "../../services/remote.service";
+import {Seeds} from "../../services/seeds";
 import {Seed} from "../../models/seed.model";
 
 @IonicPage({

@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
-import {ViewController, IonicPage, NavController} from "ionic-angular";
-import {ExplorerService} from "../../providers/explorer.service";
-import {SeedsService} from "../../providers/seeds.service";
+import {ViewController, IonicPage, NavController} from "@ionic/angular";
+import {ExplorerService} from "../../services/explorer.service";
+import {SeedsService} from "../../services/seeds.service";
 import {Seed} from "../../models/seed.model";
-import {TrackingService} from "../../providers/tracking.service";
+import {TrackingService} from "../../services/tracking.service";
 
 @IonicPage()
 @Component({

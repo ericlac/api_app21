@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {ViewController, NavParams, IonicPage} from "ionic-angular";
+import {ViewController, NavParams, IonicPage} from "@ionic/angular";
 
 @IonicPage({
     segment: 'iframe/:id'

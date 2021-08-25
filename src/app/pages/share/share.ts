@@ -1,10 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
-import {Content, NavParams, NavController, IonicPage, ModalController} from 'ionic-angular';
-import {ApiAppConfig} from "../../providers/apiapp.config";
+import {Content, NavParams, NavController, IonicPage, ModalController} from '@ionic/angular';
+import {ApiAppConfig} from "../../services/apiapp.config";
 import {WidgetPage} from "../widget/widget";
 import {IframePage} from "../iframe/iframe";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
-import {TrackingService} from "../../providers/tracking.service";
+import {TrackingService} from "../../services/tracking.service";
 
 
 @IonicPage({

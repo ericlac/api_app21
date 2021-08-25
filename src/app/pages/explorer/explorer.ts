@@ -1,9 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
-import {AlertController, App, Content, IonicPage, NavController, Platform, Slides} from 'ionic-angular';
-import {ExplorerService} from "../../providers/explorer.service";
+import {AlertController, App, Content, IonicPage, NavController, Platform, Slides} from '@ionic/angular';
+import {ExplorerService} from "../../services/explorer.service";
 import {GraphComponent} from "../../components/graph.component";
-import {SeedsService} from "../../providers/seeds.service";
-import {AuthService} from "../../providers/auth.service";
+import {SeedsService} from "../../services/seeds.service";
+import {AuthService} from "../../services/auth.service";
 import {Seed} from "../../models/seed.model";
 import {WheelComponent} from "../../components/wheel.component";
 import {InAppBrowser} from "@ionic-native/in-app-browser";

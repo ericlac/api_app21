@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {NavController, Platform, AlertController, IonicPage} from 'ionic-angular';
-import {AuthService} from "../../providers/auth.service";
+import {NavController, Platform, AlertController, IonicPage} from '@ionic/angular';
+import {AuthService} from "../../services/auth.service";
 import {Network} from "@ionic-native/network";
 
 @IonicPage()

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {NavController, IonicPage, ModalController, NavParams, Events} from 'ionic-angular';
-import {SeedsService} from "../../providers/seeds.service";
-import {AuthService} from "../../providers/auth.service";
+import {NavController, IonicPage, ModalController, NavParams, Events} from '@ionic/angular';
+import {SeedsService} from "../../services/seeds.service";
+import {AuthService} from "../../services/auth.service";
 
 @IonicPage({
   segment: 'initialisation'

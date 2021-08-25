@@ -1,11 +1,11 @@
 import {Component, ViewChild} from "@angular/core";
-import {ViewController, Content, IonicPage, Searchbar, NavParams} from "ionic-angular";
-import {ExplorerService} from "../../providers/explorer.service";
-import {Seeds} from "../../providers/seeds";
+import {ViewController, Content, IonicPage, Searchbar, NavParams} from "@ionic/angular";
+import {ExplorerService} from "../../services/explorer.service";
+import {Seeds} from "../../services/seeds";
 import {Keyboard} from "@ionic-native/keyboard";
 import {Seed} from "../../models/seed.model";
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import {SeedsService} from "../../providers/seeds.service";
+import {SeedsService} from "../../services/seeds.service";
 import {SearchPage} from "../search/search";
 
 @IonicPage({

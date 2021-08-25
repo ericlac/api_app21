@@ -1,14 +1,14 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavParams, NavController, ModalController, ToastController, LoadingController, IonicPage} from 'ionic-angular';
+import {NavParams, NavController, ModalController, ToastController, LoadingController, IonicPage} from '@ionic/angular';
 import {Seed} from "../../models/seed.model";
-import {ExplorerService} from "../../providers/explorer.service";
-import {SeedsService} from "../../providers/seeds.service";
+import {ExplorerService} from "../../services/explorer.service";
+import {SeedsService} from "../../services/seeds.service";
 import {SeedType} from "../seed-type/seed-type";
 import {InternalLinksPage} from "../internal-links/internal-links";
 import {EditAvatar} from "../edit-avatar/edit-avatar";
-import {Seeds} from "../../providers/seeds";
-import {AuthService} from "../../providers/auth.service";
-import {TrackingService} from "../../providers/tracking.service";
+import {Seeds} from "../../services/seeds";
+import {AuthService} from "../../services/auth.service";
+import {TrackingService} from "../../services/tracking.service";
 
 @IonicPage({
   segment: 'edition'

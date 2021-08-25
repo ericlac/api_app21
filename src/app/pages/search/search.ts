@@ -1,13 +1,13 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, Searchbar, IonicPage, Content} from 'ionic-angular';
-import {ExplorerService} from "../../providers/explorer.service";
+import {NavController, Searchbar, IonicPage, Content} from '@ionic/angular';
+import {ExplorerService} from "../../services/explorer.service";
 import {FormPage} from "../form/form";
 import {Keyboard} from "@ionic-native/keyboard";
-import {Seeds} from "../../providers/seeds";
-import {SeedsService} from "../../providers/seeds.service";
+import {Seeds} from "../../services/seeds";
+import {SeedsService} from "../../services/seeds.service";
 import {Seed} from "../../models/seed.model";
-import {AuthService} from "../../providers/auth.service";
-import {TrackingService} from "../../providers/tracking.service";
+import {AuthService} from "../../services/auth.service";
+import {TrackingService} from "../../services/tracking.service";
 
 @IonicPage({
   segment: 'recherche'

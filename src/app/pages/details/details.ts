@@ -1,10 +1,10 @@
 import {Component, ViewChild, NgZone} from '@angular/core';
-import {App, NavParams, Events, NavController, Content, AlertController, Platform, IonicPage} from 'ionic-angular';
+import {App, NavParams, Events, NavController, Content, AlertController, Platform, IonicPage} from '@ionic/angular';
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
-import {ExplorerService} from "../../providers/explorer.service";
-import {AuthService} from "../../providers/auth.service";
+import {ExplorerService} from "../../services/explorer.service";
+import {AuthService} from "../../services/auth.service";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
-import {SeedsService} from "../../providers/seeds.service";
+import {SeedsService} from "../../services/seeds.service";
 
 @IonicPage({
   segment: 'details/:id'

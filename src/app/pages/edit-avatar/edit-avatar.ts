@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {ViewController, Platform, IonicPage} from "ionic-angular";
+import {ViewController, Platform, IonicPage} from "@ionic/angular";
 import {Camera} from "@ionic-native/camera";
 import {File} from '@ionic-native/file';
 

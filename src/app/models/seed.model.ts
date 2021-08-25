@@ -1,4 +1,4 @@
-import {Seeds} from "../providers/seeds";
+import {Seeds} from "../services/seeds";
 import {v4 as uuid} from "uuid";
 
 export class Seed {
