@@ -32,25 +32,25 @@
       font-size: 1.1rem;
     }
   }
-  
+  //EL migration change path ../ by ~
   @font-face {
     font-family: 'apiapp';
-    src:  url('../assets/fonts/apiapp.eot');
-    src:  url('../assets/fonts/apiapp.eot#iefix') format('embedded-opentype'),
-    url('../assets/fonts/apiapp.ttf') format('truetype'),
-    url('../assets/fonts/apiapp.woff') format('woff'),
-    url('../assets/fonts/apiapp.svg#apiapp') format('svg');
+    src:  url('~assets/fonts/apiapp.eot');
+    src:  url('~assets/fonts/apiapp.eot#iefix') format('embedded-opentype'),
+    url('~assets/fonts/apiapp.ttf') format('truetype'),
+    url('~assets/fonts/apiapp.woff') format('woff'),
+    url('~assets/fonts/apiapp.svg#apiapp') format('svg');
     font-weight: normal;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'apiapp-actions';
-    src:  url('../assets/fonts/apiapp-actions.eot');
-    src:  url('../assets/fonts/apiapp-actions.eot#iefix') format('embedded-opentype'),
-    url('../assets/fonts/apiapp-actions.ttf') format('truetype'),
-    url('../assets/fonts/apiapp-actions.woff') format('woff'),
-    url('../assets/fonts/apiapp-actions.svg#apiapp-actions') format('svg');
+    src:  url('~assets/fonts/apiapp-actions.eot');
+    src:  url('~assets/fonts/apiapp-actions.eot#iefix') format('embedded-opentype'),
+    url('~assets/fonts/apiapp-actions.ttf') format('truetype'),
+    url('~assets/fonts/apiapp-actions.woff') format('woff'),
+    url('~assets/fonts/apiapp-actions.svg#apiapp-actions') format('svg');
     font-weight: normal;
     font-style: normal;
   }
