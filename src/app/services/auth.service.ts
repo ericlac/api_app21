@@ -59,7 +59,7 @@ export class AuthService {
         return resp;
       })).subscribe(data => {
       //EL:  let profileHeader = {headers: new Headers({'Authorization': 'Bearer ' + data.access_token})};      
-        let profileHeader = {headers: new Headers({'Authorization': 'Bearer ' + data.access_token })};
+        let profileHeader = {headers: new HttpHeaders({'Authorization': 'Bearer ' + data.access_token })};
         this.http.get(ApiAppConfig.OAUTH_PROFILE_URL, profileHeader).pipe(map(resp => {
           return resp;
         })).subscribe(profile => {

@@ -71,7 +71,7 @@ export class LoginPage {
   hasConnectivity(): boolean {
     return this.connectionType && this.connectionType != 'none';
   }
-
+/*EL
   displayOfflineAlert(): void {
     let alert = this.alertCtrl.create({
       title: "Aucune connectivité",
@@ -80,5 +80,14 @@ export class LoginPage {
       buttons: [{text: 'Fermer'}]
     });
     alert.present();
+  }*/
+  async displayOfflineAlert() {
+    let alert = await this.alertCtrl.create({
+      header: "Aucune connectivité",
+      message: "Oups, pas de réseau :(\nPour vous authentifier, ApiApp a besoin d'une connexion Internet, via le réseau téléphonique mobile, le Wifi,...",
+      cssClass: "custom_alert",
+      buttons: [{text: 'Fermer'}]
+    });
+    await alert.present();
   }
 }

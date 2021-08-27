@@ -1,11 +1,12 @@
 import {Component, ViewChild} from "@angular/core";
 //EL import {ViewController, Content, IonicPage, Searchbar, NavParams} from "@ionic/angular";
-import {ViewController, IonContent, Searchbar, NavParams} from "@ionic/angular";
+import {ModalController, IonContent, IonSearchbar, NavParams} from "@ionic/angular";
 import {ExplorerService} from "../../services/explorer.service";
 import {Seeds} from "../../services/seeds";
 import {Keyboard} from "@ionic-native/keyboard";
 import {Seed} from "../../models/seed.model";
-import {animate, state, style, transition, trigger} from "@angular/animations";
+//EL import {animate, state, style, transition, trigger} from "@angular/animations";
+import {animate, state, style, transition, trigger} from "@angular/animation";
 import {SeedsService} from "../../services/seeds.service";
 import {SearchPage} from "../search/search";
 
@@ -25,7 +26,7 @@ import {SearchPage} from "../search/search";
 })
 export class InternalLinksPage {
   @ViewChild(IonContent) content: IonContent;
-  @ViewChild(Searchbar) searchbar: Searchbar;
+  @ViewChild(IonSearchbar) searchbar: IonSearchbar;
 
   public node: Seed;
   public searching: boolean;
@@ -34,8 +35,9 @@ export class InternalLinksPage {
   public resultsIds: Array<string>;
   public results: Array<Seed>;
 
-  constructor(public viewCtrl: ViewController, private params: NavParams,
-              private keyboard: Keyboard, public explorerService: ExplorerService, public seedsService: SeedsService) {
+  constructor(public viewCtrl: ModalController, private params: NavParams,
+//EL              private keyboard: Keyboard, public explorerService: ExplorerService, public seedsService: SeedsService) {
+              private keyboard: typeof Keyboard, public explorerService: ExplorerService, public seedsService: SeedsService) {
     this.searchQuery = null;
     this.searchScope = Seeds.SCOPE_ALL;
     this.searching = false;

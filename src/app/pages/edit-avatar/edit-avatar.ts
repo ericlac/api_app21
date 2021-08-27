@@ -1,8 +1,9 @@
 import {Component} from "@angular/core";
 //EL import {ViewController, Platform, IonicPage} from "@ionic/angular";
-import {ViewController, Platform} from "@ionic/angular";
+import {ModalController, Platform} from "@ionic/angular";
 import {Camera} from "@ionic-native/camera";
-import {File} from '@ionic-native/file';
+//EL import {File} from '@ionic-native/file';
+import {File} from '@ionic-native/file/ngx';
 
 declare var cordova: any;
 
@@ -18,7 +19,7 @@ export class EditAvatar {
   public avatar: any;
   public isWeb: boolean;
 
-  constructor(public viewCtrl: ViewController, private platform: Platform, private file: File, private camera: Camera) {
+  constructor(public viewCtrl: ModalController, private platform: Platform, private file: File, private camera: typeof Camera) {
     this.avatar = {};
     this.isWeb = !platform.is('cordova');
   }
@@ -122,7 +123,8 @@ export class EditAvatar {
       let reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.avatar.data = reader.result.substr(reader.result.indexOf(',') + 1);
+//EL        this.avatar.data = reader.result.substr(reader.result as string).indexOf(',') + 1);
+        this.avatar.data = reader.result.substr((reader.result as string).indexOf(',') + 1);
       };
       reader.onerror = function (error) {
         console.log('Base64 encoding error: ', error);

@@ -160,7 +160,7 @@ export class ExplorerPage {
 
   logOut() {
     let confirm = this.alertCtrl.create({
-      title: 'Déconnexion',
+      header: 'Déconnexion',
       message: 'Souhaitez-vous vous déconnecter ?',
       buttons: [
         {text: 'Non', handler: () => {}},

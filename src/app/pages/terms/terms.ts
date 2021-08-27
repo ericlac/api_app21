@@ -1,16 +1,19 @@
 import {Component} from "@angular/core";
-import {ViewController, IonicPage} from "@ionic/angular";
+//EL import {ViewController, IonicPage} from "@ionic/angular";
+import {ModalController} from "@ionic/angular";
 
-@IonicPage({
+/*EL @IonicPage({
   segment: 'conditions_generales'
 })
+*/
 @Component({
   templateUrl: 'terms.html'
 })
 export class Terms {
   public type: string;
 
-  constructor(public viewCtrl: ViewController) {
+//EL  constructor(public viewCtrl: ViewController) {
+    constructor(public viewCtrl: ModalController) {
   }
 
   dismiss(accept) {

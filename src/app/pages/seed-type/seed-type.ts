@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 //EL import {ViewController, NavParams, IonicPage} from "@ionic/angular";
-import {ViewController, NavParams} from "@ionic/angular";
+import {ModalController, NavParams} from "@ionic/angular";
 import {Seeds} from "../../services/seeds";
 
 /*@IonicPage()
@@ -10,7 +10,7 @@ import {Seeds} from "../../services/seeds";
 export class SeedType {
   public type: string;
 
-  constructor(public viewCtrl: ViewController, private params: NavParams) {
+  constructor(public viewCtrl: ModalController, private params: NavParams) {
     this.type = params.get('type');
   }
 

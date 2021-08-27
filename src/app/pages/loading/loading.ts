@@ -67,7 +67,7 @@ export class LoadingPage {
   navigateHome(): void {
     this.navCtrl.setRoot('ExplorerPage', {}, {animate: false});
   }
-
+/*EL
   displayTermsConditions(): void {
     let terms = this.modalCtrl.create('Terms');
     terms.onDidDismiss(data => {
@@ -81,6 +81,24 @@ export class LoadingPage {
       }
     });
     terms.present();
+  }*/
+
+  async displayTermsConditions() {
+    let terms = await this.modalCtrl.create({
+        component: AuthService,
+        componentProps: { users: this.authService.userSeed },
+    });
+    terms.onDidDismiss().then((data => {
+      if(data) {
+        this.authService.userSeed.termsConditions = true;
+        return this.dataService.saveNode(this.authService.userSeed).then(() => {
+          this.navigateHome();
+        });
+      } else {
+        this.cancel();
+      }
+    }));
+   await terms.present();
   }
 
   cancel() {

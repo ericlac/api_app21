@@ -1,16 +1,19 @@
 import {Component} from "@angular/core";
-import {ViewController, NavParams, IonicPage} from "@ionic/angular";
+//EL import {ViewController, NavParams, IonicPage} from "@ionic/angular";
+import {ModalController, NavParams} from "@ionic/angular";
 
+/*EL
 @IonicPage({
     segment: 'iframe/:id'
 })
+*/
 @Component({
   templateUrl: 'iframe.html'
 })
 export class IframePage {
   public url: string;
 
-  constructor(public viewCtrl: ViewController, private params: NavParams) {
+  constructor(public viewCtrl: ModalController, private params: NavParams) {
     this.url = params.get('url');
   }
 
