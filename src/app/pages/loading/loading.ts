@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
-import {NavController, IonicPage, ModalController, NavParams, Events} from '@ionic/angular';
+//EL import {NavController, IonicPage, ModalController, NavParams, Events} from '@ionic/angular';
+import {NavController, ModalController, NavParams, Events} from '@ionic/angular';
 import {SeedsService} from "../../services/seeds.service";
 import {AuthService} from "../../services/auth.service";
 
-@IonicPage({
+/*EL @IonicPage({
   segment: 'initialisation'
-})
+})*/
 @Component({
   templateUrl: 'loading.html'
 })

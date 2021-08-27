@@ -1,28 +1,30 @@
 import {Component, ViewChild} from '@angular/core';
-import {Content, NavParams, NavController, IonicPage, ModalController} from '@ionic/angular';
+//EL import {Content, NavParams, NavController, IonicPage, ModalController} from '@ionic/angular';
+import {IonContent, NavParams, NavController, ModalController} from '@ionic/angular';
 import {ApiAppConfig} from "../../services/apiapp.config";
 import {WidgetPage} from "../widget/widget";
 import {IframePage} from "../iframe/iframe";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {TrackingService} from "../../services/tracking.service";
 
-
+/*EL
 @IonicPage({
   segment: 'partager/:id'
-})
+})*/
 
 @Component({
   templateUrl: 'share.html'
 })
 export class SharePage {
-  @ViewChild(Content) content: Content;
+  @ViewChild(IonContent) content: IonContent;
 
   public seedId: string;
   public directLink: string;
   public sortBy: string;
   public sharingModes: Array<any>;
 
-  constructor(private navParams: NavParams, private navCtrl: NavController, private iab: InAppBrowser,
+//EL  constructor(private navParams: NavParams, private navCtrl: NavController, private iab: InAppBrowser,
+  constructor(private navParams: NavParams, private navCtrl: NavController, private iab: typeof InAppBrowser,
               private modalCtrl: ModalController, private tracker: TrackingService) {
     this.seedId = this.navParams.get('id');
     this.directLink = ApiAppConfig.SHARING_HOST + '/graines/' + this.seedId;

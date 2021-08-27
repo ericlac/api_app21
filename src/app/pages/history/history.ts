@@ -1,11 +1,12 @@
 import {Component} from "@angular/core";
-import {ViewController, IonicPage, NavController} from "@ionic/angular";
+//EL import {ViewController, IonicPage, NavController} from "@ionic/angular";
+import {PopoverController, NavController} from "@ionic/angular";
 import {ExplorerService} from "../../services/explorer.service";
 import {SeedsService} from "../../services/seeds.service";
 import {Seed} from "../../models/seed.model";
 import {TrackingService} from "../../services/tracking.service";
 
-@IonicPage()
+//EL @IonicPage()
 @Component({
   templateUrl: 'history.html'
 })
@@ -13,8 +14,9 @@ export class HistoryPage {
 
   public history: Array<Seed>;
 
-  constructor(public viewCtrl: ViewController, private navCtrl: NavController, private seedsService: SeedsService,
-              private explorerService: ExplorerService, private tracker: TrackingService) {
+//EL  constructor(public viewCtrl: ViewController, private navCtrl: NavController, private seedsService: SeedsService,
+  constructor(public viewCtrl: PopoverController, private navCtrl: NavController, private seedsService: SeedsService,
+      private explorerService: ExplorerService, private tracker: TrackingService) {
     this.history = [];
   }
 

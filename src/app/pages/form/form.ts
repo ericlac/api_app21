@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavParams, NavController, ModalController, ToastController, LoadingController, IonicPage} from '@ionic/angular';
+//import {NavParams, NavController, ModalController, ToastController, LoadingController, IonicPage} from '@ionic/angular';
+import {NavParams, NavController, ModalController, ToastController, LoadingController} from '@ionic/angular';
 import {Seed} from "../../models/seed.model";
 import {ExplorerService} from "../../services/explorer.service";
 import {SeedsService} from "../../services/seeds.service";
@@ -10,9 +11,10 @@ import {Seeds} from "../../services/seeds";
 import {AuthService} from "../../services/auth.service";
 import {TrackingService} from "../../services/tracking.service";
 
-@IonicPage({
+/*EL @IonicPage({
   segment: 'edition'
 })
+*/
 @Component({
   templateUrl: 'form.html'
 })

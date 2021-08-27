@@ -1,5 +1,6 @@
 import {Component, ViewChild} from "@angular/core";
-import {ViewController, Content, IonicPage, Searchbar, NavParams} from "@ionic/angular";
+//EL import {ViewController, Content, IonicPage, Searchbar, NavParams} from "@ionic/angular";
+import {ViewController, IonContent, Searchbar, NavParams} from "@ionic/angular";
 import {ExplorerService} from "../../services/explorer.service";
 import {Seeds} from "../../services/seeds";
 import {Keyboard} from "@ionic-native/keyboard";
@@ -8,9 +9,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 import {SeedsService} from "../../services/seeds.service";
 import {SearchPage} from "../search/search";
 
+/*EL
 @IonicPage({
   segment: 'graines'
-})
+})*/
 @Component({
   templateUrl: 'internal-links.html',
   animations: [
@@ -22,7 +24,7 @@ import {SearchPage} from "../search/search";
   ]
 })
 export class InternalLinksPage {
-  @ViewChild(Content) content: Content;
+  @ViewChild(IonContent) content: IonContent;
   @ViewChild(Searchbar) searchbar: Searchbar;
 
   public node: Seed;
@@ -59,7 +61,7 @@ export class InternalLinksPage {
     this.results = [];
     this.resultsIds = [];
     this.searching = false;
-    this.content.resize();
+ //EL   this.content.resize();
   }
 
   scopeChanged(evt): void {
@@ -75,7 +77,7 @@ export class InternalLinksPage {
         this.seedsService.getNodes(seedsIds.slice(0, SearchPage.BATCH_SIZE)).then((seeds) => {
           this.results = seeds;
           this.searching = false;
-          this.content.resize();
+ //EL         this.content.resize();
         });
       });
     }

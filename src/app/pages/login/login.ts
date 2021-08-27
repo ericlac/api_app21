@@ -1,12 +1,13 @@
 import {Component} from '@angular/core';
-import {NavController, Platform, AlertController, IonicPage} from '@ionic/angular';
+//EL import {NavController, Platform, AlertController, IonicPage} from '@ionic/angular';
+import {NavController, Platform, AlertController} from '@ionic/angular';
 import {AuthService} from "../../services/auth.service";
 import {Network} from "@ionic-native/network";
 
-@IonicPage()
+/*EL @IonicPage()
 @Component({
   templateUrl: 'login.html'
-})
+})*/
 export class LoginPage {
 
   public msg: string;
@@ -14,7 +15,8 @@ export class LoginPage {
   private connectionType: string;
 
   constructor(public navCtrl: NavController, public authService: AuthService, private platform: Platform,
-              private network: Network, private alertCtrl: AlertController) {
+//EL    private network: Network, private alertCtrl: AlertController) {
+      private network: typeof Network, private alertCtrl: AlertController) {
     this.connectionType = 'web';
 
     // Subscribe to connectivity changes on mobile devices

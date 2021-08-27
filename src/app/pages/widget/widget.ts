@@ -1,17 +1,18 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, Content, NavParams, IonicPage} from '@ionic/angular';
+//EL import {NavController, Content, NavParams, IonicPage} from '@ionic/angular';
+import {NavController, IonContent, NavParams} from '@ionic/angular';
 import {RemoteDataService} from "../../services/remote.service";
 import {Seeds} from "../../services/seeds";
 import {Seed} from "../../models/seed.model";
-
+/*EL
 @IonicPage({
   segment: 'widget/:sort/:id'
-})
+})*/
 @Component({
   templateUrl: 'widget.html'
 })
 export class WidgetPage {
-  @ViewChild(Content) content: Content;
+  @ViewChild(IonContent) content: IonContent;
 
   public static SORT_ALPHABET = 'alpha';
   public static SORT_CHRONO = 'chrono';

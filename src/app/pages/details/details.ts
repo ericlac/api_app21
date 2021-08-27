@@ -1,28 +1,32 @@
 import {Component, ViewChild, NgZone} from '@angular/core';
-import {App, NavParams, Events, NavController, Content, AlertController, Platform, IonicPage} from '@ionic/angular';
+//EL: import {App, NavParams, Events, NavController, Content, AlertController, Platform, IonicPage} from '@ionic/angular';
+import {IonApp, NavParams, Events, NavController, IonContent, AlertController, Platform} from '@ionic/angular';
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 import {ExplorerService} from "../../services/explorer.service";
 import {AuthService} from "../../services/auth.service";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {SeedsService} from "../../services/seeds.service";
 
-@IonicPage({
+/*EL @IonicPage({
   segment: 'details/:id'
 })
+*/
 @Component({
   templateUrl: 'details.html'
 })
 export class DetailsPage {
-  @ViewChild(Content) content: Content;
+  @ViewChild(IonContent) content: IonContent;
 
   public authorName;
   public authorId;
 
-  constructor(private app: App, private navCtrl: NavController, public events: Events, private sanitizer: DomSanitizer,
+//EL  constructor(private app: App, private navCtrl: NavController, public events: Events, private sanitizer: DomSanitizer,
+  constructor(private app: IonApp, private navCtrl: NavController, public events: Events, private sanitizer: DomSanitizer,
               public explorerService: ExplorerService, public authService: AuthService,
               public alertCtrl: AlertController, public dataService: SeedsService, private navParams: NavParams,
-              private iab: InAppBrowser, private zone: NgZone, private platform: Platform) {
-  }
+//EL              private iab: InAppBrowser, private zone: NgZone, private platform: Platform) {
+              private iab: typeof InAppBrowser, private zone: NgZone, private platform: Platform) {
+                }
 
   ionViewDidEnter(): void {
     if(!this.authService.userSeed) {
@@ -80,7 +84,7 @@ export class DetailsPage {
       });
     } else {
       this.explorerService.navigateTo(node, () => {
-        this.content.resize()
+ //EL:       this.content.resize()
       });
     }
   }

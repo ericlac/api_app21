@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {AlertController, App, Content, IonicPage, NavController, Platform, Slides} from '@ionic/angular';
+//EL import {AlertController, App, Content, IonicPage, NavController, Platform, Slides} from '@ionic/angular';
+import {AlertController, IonApp, IonContent, NavController, Platform, IonSlides} from '@ionic/angular';
 import {ExplorerService} from "../../services/explorer.service";
 import {GraphComponent} from "../../components/graph.component";
 import {SeedsService} from "../../services/seeds.service";
@@ -8,15 +9,17 @@ import {Seed} from "../../models/seed.model";
 import {WheelComponent} from "../../components/wheel.component";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 
-@IonicPage({
+/*EL @IonicPage({
   segment: 'explorer'
 })
+*/
 @Component({
   templateUrl: 'explorer.html'
 })
 export class ExplorerPage {
-  @ViewChild('viewSlides') viewSlides: Slides;
-  @ViewChild(Content) content: Content;
+//EL  @ViewChild('viewSlides') viewSlides: Slides;
+  @ViewChild('viewSlides') viewSlides: IonSlides;
+  @ViewChild(IonContent) content: IonContent;
   @ViewChild(WheelComponent) wheel: WheelComponent;
   @ViewChild(GraphComponent) graph: GraphComponent;
 
@@ -28,7 +31,8 @@ export class ExplorerPage {
 
   constructor(public explorerService: ExplorerService, public dataService: SeedsService,
               public authService: AuthService, private navCtrl: NavController, private platform: Platform,
-              private alertCtrl: AlertController, private app: App, private iab: InAppBrowser) {
+ //EL             private alertCtrl: AlertController, private app: App, private iab: InAppBrowser) {
+              private alertCtrl: AlertController, private app: IonApp, private iab: typeof InAppBrowser) {
     this.loading = true;
     this.refresh = false;
   }
@@ -112,7 +116,7 @@ export class ExplorerPage {
 
   updateViews() {
     if(this.graph) {
-      this.content.resize();
+  //EL    this.content.resize();
       this.graph.render(this.explorerService.networkData.nodes, this.explorerService.networkData.edges, this.refresh);
       this.loading = false;
       this.refresh = false;
@@ -166,6 +170,7 @@ export class ExplorerPage {
             this.dataService.cancelReplication();
             this.authService.logOut().then(() => {
               this.explorerService.initData();
+//EL unresolved!!!             this.app.getRootNav().setRoot('LoginPage');
               this.app.getRootNav().setRoot('LoginPage');
             });
           }

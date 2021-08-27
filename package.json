@@ -26,11 +26,15 @@
     "@capacitor/keyboard": "1.0.2",
     "@capacitor/status-bar": "1.0.2",
     "@ionic-native/in-app-browser": "^5.36.0",
+    "@ionic-native/keyboard": "^5.36.0",
+    "@ionic-native/network": "^5.36.0",
     "@ionic/angular": "^5.5.2",
     "@ionic/storage": "^3.0.6",
+    "pouchdb-adapter-memory": "^7.2.2",
     "pouchdb-browser": "^7.2.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
+    "worker-pouch": "^2.1.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

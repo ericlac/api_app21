@@ -1,11 +1,12 @@
 import {Component} from "@angular/core";
-import {ViewController, NavParams, IonicPage} from "@ionic/angular";
+//EL import {ViewController, NavParams, IonicPage} from "@ionic/angular";
+import {ViewController, NavParams} from "@ionic/angular";
 import {Seeds} from "../../services/seeds";
 
-@IonicPage()
+/*@IonicPage()
 @Component({
   templateUrl: 'seed-type.html'
-})
+})*/
 export class SeedType {
   public type: string;
 

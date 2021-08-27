@@ -1,14 +1,16 @@
 import {NgModule} from '@angular/core';
-import {IonicPageModule} from "@ionic/angular";
+//EL: import {IonicPageModule} from "@ionic/angular";
+import {IonicModule} from "@ionic/angular";
 import {DetailsPage} from "./details";
 
 @NgModule({
   declarations: [
     DetailsPage
   ],
-  imports: [
-    IonicPageModule.forChild(DetailsPage)
+  /*EL imports: [
+    IonicModule.forChild(DetailsPage)
   ],
+  */
   entryComponents: [
     DetailsPage
   ]

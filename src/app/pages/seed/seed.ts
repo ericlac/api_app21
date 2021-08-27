@@ -1,25 +1,27 @@
 import {Component, ViewChild} from '@angular/core';
-import {Content, NavParams, NavController, IonicPage} from '@ionic/angular';
+//EL import {Content, NavParams, NavController, IonicPage} from '@ionic/angular';
+import {IonContent, NavParams, NavController} from '@ionic/angular';
 import {Seed} from "../../models/seed.model";
 import {InAppBrowser} from "@ionic-native/in-app-browser";
 import {RemoteDataService} from "../../services/remote.service";
-
+/*EL
 @IonicPage({
   segment: 'graines/:id'
 })
-
+*/
 @Component({
   templateUrl: 'seed.html'
 })
 export class SeedPage {
-  @ViewChild(Content) content: Content;
+  @ViewChild(IonContent) content: IonContent;
 
   public seed: Seed;
   public seedId: string;
   public hasParent: boolean;
 
-  constructor(private navParams: NavParams, private navCtrl: NavController, private iab: InAppBrowser,
-              private dataService: RemoteDataService) {
+//EL  constructor(private navParams: NavParams, private navCtrl: NavController, private iab: InAppBrowser,
+  constructor(private navParams: NavParams, private navCtrl: NavController, private iab: typeof InAppBrowser,
+      private dataService: RemoteDataService) {
     this.seedId = this.navParams.get('id');
     if(this.navParams.get('seed')) {
       this.seed = this.navParams.get('seed');

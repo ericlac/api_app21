@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, Searchbar, IonicPage, Content} from '@ionic/angular';
+//EL:import {NavController, Searchbar, IonicPage, Content} from '@ionic/angular';
+import {NavController, IonSearchbar, IonContent} from '@ionic/angular';
 import {ExplorerService} from "../../services/explorer.service";
 import {FormPage} from "../form/form";
 import {Keyboard} from "@ionic-native/keyboard";
@@ -9,17 +10,20 @@ import {Seed} from "../../models/seed.model";
 import {AuthService} from "../../services/auth.service";
 import {TrackingService} from "../../services/tracking.service";
 
-@IonicPage({
+/*EL @IonicPage({
   segment: 'recherche'
 })
+*/
 @Component({
   templateUrl: 'search.html'
 })
 export class SearchPage {
   public static readonly BATCH_SIZE = 50;
 
-  @ViewChild(Searchbar) searchbar: Searchbar;
-  @ViewChild(Content) content: Content;
+//EL:  @ViewChild(Searchbar) searchbar: Searchbar;
+  @ViewChild(IonSearchbar) searchbar: IonSearchbar;
+//EL:  @ViewChild(Content) content: Content;
+  @ViewChild(IonContent) content: IonContent;
 
   public searching: boolean;
   public searchQuery: string;
@@ -30,7 +34,8 @@ export class SearchPage {
   public changesAuthors: any;
 
   constructor(public explorerService: ExplorerService, public seedsService: SeedsService, private tracker: TrackingService,
-              private authService: AuthService, private keyboard: Keyboard, private navCtrl: NavController) {
+//EL              private authService: AuthService, private keyboard: Keyboard, private navCtrl: NavController) {
+              private authService: AuthService, private keyboard: typeof Keyboard, private navCtrl: NavController) {
     this.searchQuery = null;
     this.searchScope = Seeds.SCOPE_ALL;
     this.results = [];
@@ -138,7 +143,7 @@ export class SearchPage {
     this.results = [];
     this.resultsIds = [];
     this.searching = false;
-    this.content.resize();
+  //EL  this.content.resize();
     this.toggleActivity(this.activityScope);
   }
 
@@ -160,7 +165,7 @@ export class SearchPage {
         this.seedsService.getNodes(seedsIds.slice(0, SearchPage.BATCH_SIZE)).then((seeds) => {
           this.results = seeds;
           this.searching = false;
-          this.content.resize();
+ //EL     this.content.resize();
         });
       });
       this.tracker.trackView('Recherche : ' + this.searchQuery);

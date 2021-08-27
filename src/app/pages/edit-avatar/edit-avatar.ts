@@ -1,13 +1,15 @@
 import {Component} from "@angular/core";
-import {ViewController, Platform, IonicPage} from "@ionic/angular";
+//EL import {ViewController, Platform, IonicPage} from "@ionic/angular";
+import {ViewController, Platform} from "@ionic/angular";
 import {Camera} from "@ionic-native/camera";
 import {File} from '@ionic-native/file';
 
 declare var cordova: any;
 
-@IonicPage({
+/*EL @IonicPage({
   segment: 'image'
 })
+*/
 @Component({
   templateUrl: 'edit-avatar.html'
 })
