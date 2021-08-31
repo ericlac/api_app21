@@ -90,15 +90,19 @@ export class DetailsPage {
   }
 
   displaySearch() {
-    this.navCtrl.push('SearchPage');
+ //EL   this.navCtrl.push('SearchPage');
+    this.navCtrl.navigateForward('SearchPage');
   }
 
   shareSeed() {
-    this.navCtrl.push('SharePage', {id: this.explorerService.rootNode.id});
+//EL    this.navCtrl.push('SharePage', {id: this.explorerService.rootNode.id});
+    this.navCtrl.navigateForward('SharePage', {id: this.explorerService.rootNode.id});
   }
 
   editSeed(): void {
-    this.navCtrl.push('FormPage', {id: this.explorerService.rootNode.id, node: this.explorerService.rootNode});
+//EL    this.navCtrl.push('FormPage', {id: this.explorerService.rootNode.id, node: this.explorerService.rootNode});
+//non encore résolu car 2 paramètres : utiliser extra state ?
+    this.navCtrl.navigateForward('FormPage', {id: this.explorerService.rootNode.id, node: this.explorerService.rootNode});
   }
 
   dateFormat(date): string {
@@ -113,7 +117,7 @@ export class DetailsPage {
     return d < 10 ? ('0' + d) : d;
   }
 
-  logOut() {
+  async logOut() {
     let confirm = this.alertCtrl.create({
       header: 'Déconnexion',
       message: 'Souhaitez-vous vous déconnecter ?',
@@ -126,6 +130,7 @@ export class DetailsPage {
             this.authService.logOut().then(() => {
               this.explorerService.initData();
               this.zone.run(() => {
+//EL unresolved     this.app.getRootNav().setRoot('LoginPage');
                 this.app.getRootNav().setRoot('LoginPage');
               });
             });
@@ -133,7 +138,7 @@ export class DetailsPage {
         }
       ]
     });
-    confirm.present();
+    (await confirm).present();
   }
 
   registerBack() {

@@ -135,7 +135,8 @@ export class SearchPage {
   }
 
   navigateTo(node): void {
-    this.explorerService.navigateTo(node, () => {this.navCtrl.popToRoot();});
+ //EL   this.explorerService.navigateTo(node, () => {this.navCtrl.popToRoot();});
+    this.explorerService.navigateTo(node, () => {this.navCtrl.navigateRoot('');});
   }
 
   clearResults(evt): void {
@@ -190,6 +191,7 @@ export class SearchPage {
   }
 
   createSeed() {
-    this.navCtrl.push('FormPage', {name: this.searchQuery});
+//EL    this.navCtrl.push('FormPage', {name: this.searchQuery});
+    this.navCtrl.navigateForward('FormPage', {name: this.searchQuery});
   }
 }

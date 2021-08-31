@@ -32,6 +32,7 @@ export class HistoryPage {
   }
 
   navigateTo(node): void {
-    this.explorerService.navigateTo(node, () => {this.navCtrl.popToRoot();});
+ //EL   this.explorerService.navigateTo(node, () => {this.navCtrl.popToRoot();});
+    this.explorerService.navigateTo(node, () => {this.navCtrl.navigateRoot('');});
   }
 }

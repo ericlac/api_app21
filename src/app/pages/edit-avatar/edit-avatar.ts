@@ -123,8 +123,8 @@ export class EditAvatar {
       let reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
-//EL        this.avatar.data = reader.result.substr(reader.result as string).indexOf(',') + 1);
-        this.avatar.data = reader.result.substr((reader.result as string).indexOf(',') + 1);
+//EL        this.avatar.data = reader.result.substr(reader.result.indexOf(',') + 1);
+        this.avatar.data = (reader.result as string).substr((reader.result as string).indexOf(',') + 1);
       };
       reader.onerror = function (error) {
         console.log('Base64 encoding error: ', error);

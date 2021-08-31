@@ -107,11 +107,13 @@ export class ExplorerPage {
 
   editSeed(): void {
     this.refresh = true;
-    this.navCtrl.push('FormPage', {id: this.explorerService.rootNode.id, node: this.explorerService.rootNode});
+      //EL unresolved à cause du passage de paramètres
+    this.navCtrl.navigateForward('FormPage', {id: this.explorerService.rootNode.id, node: this.explorerService.rootNode});
   }
 
   shareSeed(): void {
-    this.navCtrl.push('SharePage', {id: this.explorerService.rootNode.id});
+    //EL unresolved à cause du passage de paramètre
+    this.navCtrl.navigateForward('SharePage', {id: this.explorerService.rootNode.id});
   }
 
   updateViews() {
@@ -128,7 +130,7 @@ export class ExplorerPage {
   }
 
   displaySearch() {
-    this.navCtrl.push('SearchPage');
+    this.navCtrl.navigateForward('SearchPage');
   }
 
   loadAuthor() {
@@ -158,7 +160,7 @@ export class ExplorerPage {
     return d < 10 ? ('0' + d) : d;
   }
 
-  logOut() {
+ async logOut() {
     let confirm = this.alertCtrl.create({
       header: 'Déconnexion',
       message: 'Souhaitez-vous vous déconnecter ?',
@@ -177,7 +179,7 @@ export class ExplorerPage {
         }
       ]
     });
-    confirm.present();
+    (await confirm).present();
   }
 
   openUrl(url): void {
@@ -197,7 +199,7 @@ export class ExplorerPage {
   }
 
   displayHistory() {
-    this.navCtrl.push('HistoryPage');
+    this.navCtrl.navigateForward('HistoryPage');
   }
 
   registerBack() {

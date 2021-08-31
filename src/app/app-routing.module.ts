@@ -11,6 +11,31 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'LoadingPage',
+    //EL pas sur de la pertinence du pathMatch
+    pathMatch: "../loading/loading",
+  },
+  {
+    path: 'SearchPage',
+    pathMatch: "../search/search",
+  },
+  {
+    path: 'SeedPage',
+    pathMatch: "../seed/seed",
+  },
+  {
+    path: 'FormPage',
+    pathMatch: "../form/form",
+  },
+  {
+    path: 'SharePage',
+    pathMatch: "../share/share",
+  },
+  {
+    path: 'HistoryPage',
+    pathMatch: "../history/history",
+  },
 ];
 
 @NgModule({

@@ -3,7 +3,8 @@ import {ApiAppConfig} from "./apiapp.config";
 import {Seed} from "../models/seed.model";
 import PouchDB from 'pouchdb-browser';
 import {Seeds} from "./seeds";
-import {ProgressHttp} from "angular-progress-http";
+//import {ProgressHttp} from "angular-progress-http";
+import {HttpProgressEvent} from "@angular/common/http";
 import {Events, Platform} from "@ionic/angular";
 import {AuthService} from "./auth.service";
 
@@ -46,7 +47,7 @@ export class SeedsService {
 
   private static readonly STOPWORDS = 'aux avec bis ceci cela ces cet cette ceux dans des elle elles est eux etes for ici ils les leur leurs lui mais mes mis moi mon meme nos notre nous oeuvre ont par pas plus pour que quel quelle quelles quels qui sans ses soi sommes son sont suis sur surtout tes the toi ton une vers via vos votre vous'.split(' ');
 
-  constructor(private http: ProgressHttp, private evt: Events, private platform: Platform,
+  constructor(private http: HttpProgressEvent, private evt: Events, private platform: Platform,
               private authService: AuthService) {
     // worker-pouch with external worker - iOS only
     // (<any>PouchDB).adapter('worker', pouchClient);
@@ -112,8 +113,9 @@ export class SeedsService {
         let remote: any = {};
         return this.remoteDatabase.info().then((remoteInfo) => {
           remote.lastSeq = remoteInfo.update_seq;
+ //EL unresolved        return this.http.withDownloadProgressListener((progress) => {
           return this.http.withDownloadProgressListener((progress) => {
-            onProgress("Téléchargement des données de l'application en cours (" + Math.ceil(progress.loaded / 1024) + "Ko)");
+              onProgress("Téléchargement des données de l'application en cours (" + Math.ceil(progress.loaded / 1024) + "Ko)");
           }).get(this.userSeedsUrl())
             .map(res => res.json()).toPromise()
             .then((data) => {

@@ -40,7 +40,8 @@ export class WidgetPage {
   }
 
   displayDetails(node) {
-    this.navCtrl.push('SeedPage', {seed: node});
+ //EL   this.navCtrl.push('SeedPage', {seed: node});
+    this.navCtrl.navigateForward('SeedPage', {seed: node});
   }
 
   private alphabetically() {

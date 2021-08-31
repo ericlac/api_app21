@@ -57,11 +57,11 @@ export class LoginPage {
 
   loggedInRedirect(): void {
     if(this.authService.userEmail) {
-      this.navCtrl.push('LoadingPage', {isOnline: this.hasConnectivity()});
+      this.navCtrl.navigateForward('LoadingPage', {isOnline: this.hasConnectivity()});
     } else {
       this.authService.getUserProfile().then(userProfile => {
         this.authService.userEmail = userProfile.email;
-        this.navCtrl.push('LoadingPage', {isOnline: this.hasConnectivity()});
+        this.navCtrl.navigateForward('LoadingPage', {isOnline: this.hasConnectivity()});
       }).catch((err) => {
         console.log('Auth required');
       });

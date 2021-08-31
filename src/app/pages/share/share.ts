@@ -51,10 +51,10 @@ export class SharePage {
     this.navCtrl.pop();
   }
 
-  shareWidget(mode) {
+  async shareWidget(mode) {
     if(mode.url == 'iframe') {
       let iframeModal = this.modalCtrl.create('IframePage', {id: this.seedId, url: this.widgetUrl()});
-      iframeModal.present();
+      (await iframeModal).present();
     } else {
       this.openUrl(encodeURI(mode.url + this.widgetUrl()).replace(/#/g, '%23'));
     }

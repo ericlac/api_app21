@@ -46,15 +46,16 @@ export class FormPage {
   dismissForm(): void {
     if(this.node.archived) {
       this.explorerService.navigateBackward(() => {
-          this.navCtrl.popToRoot();
+//EL 3x       this.navCtrl.popToRoot();
+        this.navCtrl.navigateRoot('');
       });
     } else if(this.authService.userSeed.id == this.node.id) {
       this.updateUserSeed(() => {
-        this.navCtrl.popToRoot();
+        this.navCtrl.navigateRoot('');
       });
     } else {
       this.explorerService.loadNodeData(this.node.id, () => {
-        this.navCtrl.popToRoot();
+        this.navCtrl.navigateRoot('');
       });
     }
   }
@@ -66,15 +67,17 @@ export class FormPage {
     });
   }
 
-  submitForm(): void {
+//EL  submitForm(): void {
+    async submitForm(): Promise<void> {
     this.disabled = true;
 
     let loading = this.loadingCtrl.create({
-      content: 'Enregistrement en cours...',
+//EL      content: 'Enregistrement en cours...',
+      message: 'Enregistrement en cours...',
       spinner: 'dots'
     });
-
-    loading.present();
+//EL     loading.present();    
+    (await loading).present();    
 
     setTimeout(() => {
       loading.dismiss();
@@ -154,25 +157,28 @@ export class FormPage {
     return this.node.archived ? 'person' : 'product';
   }
 
-  seedTypes(): void {
+  //EL seedTypes(): void {
+    async seedTypes(): Promise<void> {
     let typesModal = this.modalCtrl.create('SeedType', {type: this.node.category});
     typesModal.onDidDismiss(data => {
       this.node.category = data.type;
     });
-    typesModal.present();
+    (await typesModal).present();
   }
-
-  addSeed(): void {
+//EL addSeed(): void {
+  async addSeed(): Promise<void> {
     let seedsModal = this.modalCtrl.create('InternalLinksPage', {node: this.node});
-    seedsModal.present();
+    (await seedsModal).present();
   }
 
   addUrl(): void {
     this.node.urls.push({value: ''});
   }
 
-  editAvatar(): void {
-    let avatarModal = this.modalCtrl.create('EditAvatar');
+ //EL editAvatar(): void {
+  async editAvatar(): Promise<void> {
+//EL VERIF    let avatarModal = this.modalCtrl.create('EditAvatar');
+    let avatarModal = this.modalCtrl.create({component:EditAvatar});
     avatarModal.onDidDismiss(data => {
       if(data && data.data) {
         this.node.attachment = {};
@@ -180,22 +186,33 @@ export class FormPage {
         this.node.attachment[attName] = {content_type: data.type, data: data.data};
       }
     });
-    avatarModal.present();
+    (await avatarModal).present();
   }
 
   clearAvatar(): void {
     this.node.attachment = {};
   }
 
-  presentToast(msg, onDismiss) {
-    let toast = this.toastCtrl.create({
+  //EL presentToast(msg, onDismiss) {
+  async presentToast(msg, onDismiss) {
+      let toast = this.toastCtrl.create({
       message: msg,
       duration: 2500,
       position: "middle",
-      showCloseButton: true,
-      closeButtonText: "Fermer"
+/*EL  showCloseButton: true,
+      closeButtonText: "Fermer"*/
+      buttons: [
+        {
+          text: 'Close',
+          role: 'cancel',
+ /*         handler: () => {
+            console.log('Close clicked');
+          }*/
+        }
+      ]
     });
-    toast.onDidDismiss(onDismiss);
-    toast.present();
+//EL    toast.onDidDismiss(onDismiss);
+    (await toast).onDidDismiss();
+    (await toast).present();
   }
 }
